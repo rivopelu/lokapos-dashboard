@@ -1,0 +1,19 @@
+{
+  "sign_in": "sign in",
+  "sign_up": "sign up",
+  "name": "name",
+  "insert_name": "insert name",
+  "first_name": "first name",
+  "insert_first_name": "insert firs name",
+  "last_name": "last name",
+  "insert_last_name": "insert last name",
+  "email": "email",
+  "insert_email": "insert email",
+  "password": "password",
+  "insert_password": "insert password",
+  "confirmation_password": "confirmation password",
+  "insert_confirmation_password": "insert confirmation password",
+  "show_password": "show password",
+  "already_have_account": "already have account ?",
+  "sign_in_here": "sign in here"
+}
