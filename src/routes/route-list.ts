@@ -4,7 +4,7 @@ import { SignInPage } from '../pages/SIgnInPage';
 import { ROUTES } from './routes';
 import Element = jsx.JSX.Element;
 import { HomePage } from '../pages/HomePage';
-import { SignUpPage } from '../pages/SignUp';
+import { SignUpPage } from '../pages/auth/SignUp';
 
 interface IRouteList {
   elements: () => Element;
