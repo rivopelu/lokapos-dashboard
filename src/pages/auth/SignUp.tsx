@@ -85,7 +85,7 @@ export function SignUpPage() {
               <Button variant="contained" onClick={() => formik.handleSubmit()}>
                 {t('sign_up')}
               </Button>
-              <p>
+              <p className="text-center">
                 {t('already_have_account')}{' '}
                 <Link to={ROUTES.SIGN_IN()} className="text-primary-main hover:underline">
                   {t('sign_in_here')}
