@@ -1,12 +1,15 @@
-import { t } from 'i18next';
-import { InputText } from '../components/InputText';
-import { CardBody, MainCard } from '../components/MainLogo';
 import { Button, Checkbox, Divider, FormControlLabel } from '@mui/material';
+import { t } from 'i18next';
 import { Link } from 'react-router-dom';
-import { ROUTES } from '../routes/routes';
-import { BrandLogo } from '../components/BrandLogo';
+import { BrandLogo } from '../../components/BrandLogo';
+import { InputText } from '../../components/InputText';
+import { CardBody, MainCard } from '../../components/MainLogo';
+import { ROUTES } from '../../routes/routes';
+import { useSignInPage } from './useSignInPage';
 
 export function SignInPage() {
+  const page = useSignInPage();
+
   return (
     <div className="grid grid-cols-2 ">
       <div className="flex items-center justify-between flex-col h-[80%] my-auto">
@@ -19,9 +22,16 @@ export function SignInPage() {
           <CardBody>
             <div className="grid gap-4 min-w-[400px]">
               <InputText label={t('email')} placeholder={t('insert_email')} required />
-              <InputText label={t('password')} placeholder={t('insert_password')} required />
+              <InputText
+                label={t('password')}
+                type={page.showPassword ? 'text' : 'password'}
+                placeholder={t('insert_password')}
+                required
+              />
               <FormControlLabel
-                control={<Checkbox checked={false} onChange={(_, checked) => console.log(checked)} />}
+                control={
+                  <Checkbox checked={page.showPassword} onChange={(_, checked) => page.setShowPassword(checked)} />
+                }
                 label={t('show_password')}
               />
               <Button variant="contained">{t('sign_in')}</Button>

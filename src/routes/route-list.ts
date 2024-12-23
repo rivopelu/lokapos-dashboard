@@ -1,6 +1,6 @@
 import { jsx } from '@emotion/react';
 import { PAGE_TYPE_ENUM } from '../enums/page-type-enum';
-import { SignInPage } from '../pages/SIgnInPage';
+import { SignInPage } from '../pages/auth/SIgnInPage';
 import { ROUTES } from './routes';
 import Element = jsx.JSX.Element;
 import { HomePage } from '../pages/HomePage';

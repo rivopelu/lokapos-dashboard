@@ -1,1 +1,4 @@
-export interface IReqSignIn {}
+export interface IReqSignIn {
+  email: string;
+  password: string;
+}
