@@ -21,7 +21,7 @@ export function SideBar() {
     setCurrentPathSplit(split);
   }, [location.pathname]);
   return (
-    <div style={{ width: STYLE_VARIABLE.SIZE.SIDEBAR_WIDTH + 76 }} className={'h-screen '}>
+    <div style={{ width: STYLE_VARIABLE.SIZE.SIDEBAR_WIDTH }} className={'h-screen bg-red-500 '}>
       <div
         className={'bg-white h-screen w-full border-r fixed left-0'}
         style={{ width: STYLE_VARIABLE.SIZE.SIDEBAR_WIDTH }}

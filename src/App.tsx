@@ -4,7 +4,7 @@ import { routeList } from './routes/route-list';
 
 export default function App() {
   return (
-    <div className="bg-slate-100">
+    <div className="bg-slate-200">
       <Routes>
         {routeList.map((item, i) => {
           const Element = item.elements;
