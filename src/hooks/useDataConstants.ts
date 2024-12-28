@@ -17,5 +17,13 @@ export function useDataConstants() {
     },
   ];
 
-  return { sidebarDataList, tax };
+  const listTableMasterDataPage = [
+    {
+      title: t('merchant'),
+      route: ROUTES.MERCHANT(),
+      description: t('merchant_page_description'),
+    },
+  ];
+
+  return { sidebarDataList, tax, listTableMasterDataPage };
 }

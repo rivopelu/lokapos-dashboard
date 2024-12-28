@@ -6,6 +6,7 @@ import Element = jsx.JSX.Element;
 import { HomePage } from '../pages/HomePage';
 import { SignUpPage } from '../pages/auth/SignUp';
 import { MasterDataPage } from '../pages/MasterDataPage';
+import { MerchantPage } from '../pages/master-data/MerchantPage';
 
 interface IRouteList {
   elements: () => Element;
@@ -32,6 +33,11 @@ export const routeList: IRouteList[] = [
   {
     elements: MasterDataPage,
     route: ROUTES.MASTER_DATA(),
+    type: PAGE_TYPE_ENUM.PRIMARY,
+  },
+  {
+    elements: MerchantPage,
+    route: ROUTES.MERCHANT(),
     type: PAGE_TYPE_ENUM.PRIMARY,
   },
 ];

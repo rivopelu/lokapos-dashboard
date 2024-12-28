@@ -3,4 +3,5 @@ export const ROUTES = {
   SIGN_IN: () => `/auth/sign-in`,
   SIGN_UP: () => `/auth/sign-up`,
   MASTER_DATA: () => `/master-data`,
+  MERCHANT: () => `/master-data/merchant`,
 };
