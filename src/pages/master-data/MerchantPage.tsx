@@ -1,7 +1,34 @@
+import { t } from 'i18next';
+import { CardBody, MainCard } from '../../components/MainLogo';
+import { PageContainer } from '../../components/PageContainer';
+import { PageHeader } from '../../components/PageHeader';
+import { useMerchantPage } from './useMerchantpage';
+import { Button } from '@mui/material';
+import { MdAdd } from 'react-icons/md';
+
 export function MerchantPage() {
+  const page = useMerchantPage();
   return (
-    <div>
-      <h1>MERCHANT</h1>
-    </div>
+    <PageContainer className="mt-10">
+      <div className="grid gap-6">
+        <div className="flex justify-between">
+          <PageHeader title={t('merchant')} description={t('merchant_page_description')} />
+          <div>
+            <Button endIcon={<MdAdd />} variant="contained">
+              {t('add_new_merchant')}
+            </Button>
+          </div>
+        </div>
+        <div className="grid grid-cols-3 gap-4">
+          {page.listMerchant.map((item, i) => (
+            <MainCard key={i}>
+              <CardBody>
+                <div>{item.name}</div>
+              </CardBody>
+            </MainCard>
+          ))}
+        </div>
+      </div>
+    </PageContainer>
   );
 }
