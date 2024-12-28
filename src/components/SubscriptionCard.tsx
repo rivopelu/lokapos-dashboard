@@ -13,9 +13,12 @@ export function SubscriptionCard(props: IProps) {
           <div className="bg-slate-100 p-4 w-full text-center uppercase font-semibold text-slate-600">
             {props.data?.name}
           </div>
-          <div className="text-center flex flex-col justify-center gap-3">
-            <div className="font-bold text-6xl">
-              {props.data.price ? numberFormatHelper.NumberMinifyFormatter(props.data.price) : ''}
+          <div className="text-center flex flex-col justify-center gap-3 py-24">
+            <div>
+              <div className="font-bold text-6xl">
+                {props.data.price ? numberFormatHelper.NumberMinifyFormatter(props.data.price) : ''}
+              </div>
+              <p className="font-semibold text-slate-500 text-xl">{props.data.duration} day</p>
             </div>
             <p>{props.data.description}</p>
           </div>
