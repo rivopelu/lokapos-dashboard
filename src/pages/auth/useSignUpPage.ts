@@ -3,9 +3,16 @@ import { IReqSignUp } from '../../models/request/IReqSignUp';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { t } from 'i18next';
+import { HttpService } from '../../services/http.service';
+import ErrorService from '../../services/error.service';
+import { ENDPOINT } from '../../constants/endpoint';
 
 export function useSignUpPage() {
+  const httpService = new HttpService();
+  const errorService = new ErrorService();
+
   const [showPassword, setShowPassword] = useState<boolean>(false);
+  const [loadingSubmit, setLoadingSubmit] = useState<boolean>(false);
 
   const initValue: IReqSignUp = {
     email: '',
@@ -18,26 +25,39 @@ export function useSignUpPage() {
   const validationScheme = yup.object().shape({
     email: yup
       .string()
-      .email(t('validation.invalid_email')) // "invalid email" from the validation messages
-      .required(t('validation.required', { name: t('email') })), // "email is required"
-    first_name: yup.string().required(t('validation.required', { name: t('first_name') })), // "first name is required"
-    last_name: yup.string().required(t('validation.required', { name: t('last_name') })), // "last name is required"
+      .email(t('validation.invalid_email'))
+      .required(t('validation.required', { name: t('email') })),
+    first_name: yup.string().required(t('validation.required', { name: t('first_name') })),
+    last_name: yup.string().required(t('validation.required', { name: t('last_name') })),
     password: yup
       .string()
-      .min(6, t('validation.min', { name: t('password'), value: 6 })) // "password must be greater than or equal to 6"
-      .required(t('validation.required', { name: t('password') })), // "password is required"
+      .min(6, t('validation.min', { name: t('password'), value: 6 }))
+      .required(t('validation.required', { name: t('password') })),
     confirmation_password: yup
       .string()
-      .oneOf([yup.ref('password'), ''], t('validation.password_mismatch')) // Custom message for mismatched passwords
-      .required(t('validation.required', { name: t('confirmation_password') })), // "confirmation password is required"
+      .oneOf([yup.ref('password'), ''], t('validation.password_mismatch'))
+      .required(t('validation.required', { name: t('confirmation_password') })),
   });
   const formik = useFormik({
     initialValues: initValue,
     validationSchema: validationScheme,
     onSubmit: (e) => {
-      console.log(JSON.stringify(e));
+      onSubmitSignUp(e);
     },
   });
 
-  return { showPassword, setShowPassword, formik };
+  function onSubmitSignUp(value: IReqSignUp) {
+    setLoadingSubmit(true);
+    httpService
+      .POST(ENDPOINT.SIGN_UP(), value)
+      .then(() => {
+        setLoadingSubmit(false);
+      })
+      .catch((e) => {
+        errorService.fetchApiError(e);
+        setLoadingSubmit(false);
+      });
+  }
+
+  return { showPassword, setShowPassword, formik, loadingSubmit };
 }

@@ -9,6 +9,7 @@ import { useSignInPage } from './useSignInPage';
 
 export function SignInPage() {
   const page = useSignInPage();
+  const formik = page.formik;
 
   return (
     <div className="grid grid-cols-2 ">
@@ -21,12 +22,28 @@ export function SignInPage() {
           <Divider />
           <CardBody>
             <div className="grid gap-4 min-w-[400px]">
-              <InputText label={t('email')} placeholder={t('insert_email')} required />
+              <InputText
+                label={t('email')}
+                placeholder={t('insert_email')}
+                required
+                name={'email'}
+                onChange={formik.handleChange}
+                value={formik.values.email}
+                onBlur={formik.handleBlur}
+                errorMessage={formik.touched.email && formik.errors.email}
+                onEnter={() => formik.handleSubmit()}
+              />
               <InputText
                 label={t('password')}
                 type={page.showPassword ? 'text' : 'password'}
                 placeholder={t('insert_password')}
                 required
+                name={'password'}
+                onChange={formik.handleChange}
+                value={formik.values.password}
+                onBlur={formik.handleBlur}
+                errorMessage={formik.touched.password && formik.errors.password}
+                onEnter={() => formik.handleSubmit()}
               />
               <FormControlLabel
                 control={
@@ -34,7 +51,9 @@ export function SignInPage() {
                 }
                 label={t('show_password')}
               />
-              <Button variant="contained">{t('sign_in')}</Button>
+              <Button onClick={() => formik.handleSubmit()} variant="contained">
+                {t('sign_in')}
+              </Button>
               <p className="text-center">
                 {t('dont_have_account')}
                 <Link to={ROUTES.SIGN_UP()} className="text-primary-main">

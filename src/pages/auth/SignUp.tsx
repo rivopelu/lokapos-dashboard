@@ -1,9 +1,10 @@
+import LoadingButton from '@mui/lab/LoadingButton';
+import { Checkbox, Divider, FormControlLabel } from '@mui/material';
 import { t } from 'i18next';
+import { Link } from 'react-router-dom';
 import { BrandLogo } from '../../components/BrandLogo';
 import { InputText } from '../../components/InputText';
 import { CardBody, MainCard } from '../../components/MainLogo';
-import { Button, Checkbox, Divider, FormControlLabel } from '@mui/material';
-import { Link } from 'react-router-dom';
 import { ROUTES } from '../../routes/routes';
 import { useSignUpPage } from './useSignUpPage';
 
@@ -17,7 +18,7 @@ export function SignUpPage() {
         <BrandLogo />
         <MainCard>
           <CardBody>
-            <h3 className="text-3xl font-semibold capitalize">{t('sign_in')}</h3>
+            <h3 className="text-3xl font-semibold capitalize">{t('sign_up')}</h3>
           </CardBody>
           <Divider />
           <CardBody>
@@ -82,9 +83,9 @@ export function SignUpPage() {
                 }
                 label={t('show_password')}
               />
-              <Button variant="contained" onClick={() => formik.handleSubmit()}>
+              <LoadingButton loading={page.loadingSubmit} variant="contained" onClick={() => formik.handleSubmit()}>
                 {t('sign_up')}
-              </Button>
+              </LoadingButton>
               <p className="text-center">
                 {t('already_have_account')}{' '}
                 <Link to={ROUTES.SIGN_IN()} className="text-primary-main hover:underline">
