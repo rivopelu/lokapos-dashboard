@@ -5,14 +5,15 @@ import { useHomePage } from './useHomePage';
 export function HomePage() {
   const page = useHomePage();
   return (
-    <PageContainer>
-      <div className="mt-10">
-        <div className="grid grid-cols-4 gap-4">
+    <div className="relative">
+      <PageContainer>
+        <div className="grid grid-cols-4 gap-4 relative z-10 mt-10">
           {page.dataSubscription.map((item, i) => (
             <SubscriptionCard data={item} key={i} />
           ))}
         </div>
-      </div>
-    </PageContainer>
+      </PageContainer>
+      <div className="w-full top-0 bg-primary-main h-[60%] absolute"></div>
+    </div>
   );
 }
