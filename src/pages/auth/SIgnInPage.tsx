@@ -6,6 +6,7 @@ import { InputText } from '../../components/InputText';
 import { CardBody, MainCard } from '../../components/MainLogo';
 import { ROUTES } from '../../routes/routes';
 import { useSignInPage } from './useSignInPage';
+import LoadingButton from '@mui/lab/LoadingButton';
 
 export function SignInPage() {
   const page = useSignInPage();
@@ -51,9 +52,9 @@ export function SignInPage() {
                 }
                 label={t('show_password')}
               />
-              <Button onClick={() => formik.handleSubmit()} variant="contained">
+              <LoadingButton loading={page.loadingSubmit} onClick={() => formik.handleSubmit()} variant="contained">
                 {t('sign_in')}
-              </Button>
+              </LoadingButton>
               <p className="text-center">
                 {t('dont_have_account')}
                 <Link to={ROUTES.SIGN_UP()} className="text-primary-main">

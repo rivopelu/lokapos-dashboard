@@ -6,6 +6,7 @@ import { t } from 'i18next';
 import { HttpService } from '../../services/http.service.ts';
 import { ENDPOINT } from '../../constants/endpoint.ts';
 import ErrorService from '../../services/error.service.ts';
+import AuthServices from '../../services/auth.service.ts';
 
 export function useSignInPage() {
   const [showPassword, setShowPassword] = useState<boolean>(false);
@@ -13,6 +14,7 @@ export function useSignInPage() {
 
   const httpService = new HttpService();
   const errorService = new ErrorService();
+  const authService = new AuthServices();
 
   const validationScheme = yup.object().shape({
     email: yup
@@ -39,8 +41,8 @@ export function useSignInPage() {
     setLoadingSubmit(true);
     httpService
       .POST(ENDPOINT.SIGN_IN(), data)
-      .then(() => {
-        alert('OKE');
+      .then((res) => {
+        authService.successLogin(res?.data?.response_data?.access_token);
         setLoadingSubmit(false);
       })
       .catch((e) => {
