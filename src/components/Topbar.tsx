@@ -58,7 +58,7 @@ export function TopBar() {
   return (
     <nav
       className={'  border-b bg-white w-screen fixed flex'}
-      style={{ height: STYLE_VARIABLE.SIZE.TOP_BAR_HEIGHT, zIndex: 300 }}
+      style={{ height: STYLE_VARIABLE.SIZE.TOP_BAR_HEIGHT, zIndex: 49 }}
     >
       <PageContainer className={'h-full w-full'}>
         <div className={'grid grid-cols-3 h-full '}>
