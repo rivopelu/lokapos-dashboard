@@ -20,9 +20,9 @@ export function SubscriptionCard(props: IProps) {
               </div>
               <p className="font-semibold text-slate-500 text-xl">{props.data.duration} day</p>
             </div>
-            <p>{props.data.description}</p>
+            <p className="italic text-slate-600">{props.data.description}</p>
           </div>
-          <Button fullWidth size="large" variant="contained">
+          <Button fullWidth size="large" variant="outlined">
             <div className="p-3">{t('get_started')}</div>
           </Button>
         </div>
