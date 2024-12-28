@@ -13,8 +13,10 @@ export function useBasePage() {
   const location = useLocation();
 
   useEffect(() => {
-    if (location.pathname !== ROUTES.SIGN_IN()) {
-      dispatch(accountActions.getMe()).then();
+    if (!Account?.getMe?.data) {
+      if (location.pathname !== ROUTES.SIGN_IN()) {
+        dispatch(accountActions.getMe()).then();
+      }
     }
   }, [location.pathname]);
   return { profile };
