@@ -3,8 +3,11 @@ import { PAGE_TYPE_ENUM } from '../enums/page-type-enum';
 import { SideBar } from './Sidebar';
 import { STYLE_VARIABLE } from '../constants/style-variable';
 import { TopBar } from './Topbar';
+import { useBasePage } from '../hooks/useBasePage.ts';
 
 export function BasePage(props: IProps) {
+  useBasePage();
+
   if (props.type === PAGE_TYPE_ENUM.PRIMARY) {
     return (
       <div className="flex">

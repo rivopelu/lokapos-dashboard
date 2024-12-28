@@ -1,4 +1,4 @@
-import { Button, Checkbox, Divider, FormControlLabel } from '@mui/material';
+import { Checkbox, Divider, FormControlLabel } from '@mui/material';
 import { t } from 'i18next';
 import { Link } from 'react-router-dom';
 import { BrandLogo } from '../../components/BrandLogo';

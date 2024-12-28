@@ -7,9 +7,13 @@ import { t } from 'i18next';
 import { STYLE_VARIABLE } from '../constants/style-variable';
 import { PageContainer } from './PageContainer';
 import { BrandLogo } from './BrandLogo';
+import { IAccountSlice } from '../redux/reducers/account.reducers.ts';
+import { useAppSelector } from '../redux/store.ts';
 
 export function TopBar() {
   const [activeMenu, setActiveMenu] = useState<HTMLElement | null>(null);
+  const Account: IAccountSlice = useAppSelector((state) => state.Account);
+  const profile = Account.getMe?.data;
 
   function handleClose() {
     setActiveMenu(null);
@@ -65,7 +69,7 @@ export function TopBar() {
           <div className={'flex items-center justify-end gap-8'}>
             <Button>
               <div className="flex gap-4 items-center " onClick={(e) => setActiveMenu(e.currentTarget)}>
-                <div>{'Jhon Doe'}</div>
+                <div>{profile?.first_name}</div>
                 <Avatar />
               </div>
             </Button>

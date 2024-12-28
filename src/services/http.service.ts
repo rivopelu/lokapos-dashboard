@@ -15,8 +15,6 @@ export class HttpService {
     };
   }
 
-  //
-
   public GET(url: string) {
     return axios.get(this.baseEndpoint + url, this.HeaderSetting());
   }
