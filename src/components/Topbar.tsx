@@ -9,11 +9,14 @@ import { PageContainer } from './PageContainer';
 import { BrandLogo } from './BrandLogo';
 import { IAccountSlice } from '../redux/reducers/account.reducers.ts';
 import { useAppSelector } from '../redux/store.ts';
+import AuthServices from '../services/auth.service.ts';
 
 export function TopBar() {
   const [activeMenu, setActiveMenu] = useState<HTMLElement | null>(null);
   const Account: IAccountSlice = useAppSelector((state) => state.Account);
   const profile = Account.getMe?.data;
+
+  const authService = new AuthServices();
 
   function handleClose() {
     setActiveMenu(null);
@@ -46,7 +49,7 @@ export function TopBar() {
             <ListItemText className="capitalize">{t('setting')}</ListItemText>
           </Link>
         </MenuItem>
-        <MenuItem>
+        <MenuItem onClick={() => authService.Logout()}>
           <ListItemIcon>
             <MdLogout />
           </ListItemIcon>
