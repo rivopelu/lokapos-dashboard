@@ -29,9 +29,8 @@ export function SubscriptionCard(props: IProps) {
       .then((res: BaseResponse<IResCreateOrderPaymentSubscription>) => {
         const token = res.data.response_data.token;
         if (token) {
-          if (window?.snap?.pay) {
-            window.snap.pay(token);
-          }
+          // @ts-ignore
+          window.snap.pay(token);
         }
         setLoading(false);
       })
