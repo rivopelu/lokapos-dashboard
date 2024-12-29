@@ -35,5 +35,6 @@
   "subscription": "subscription",
   "package_name": "package name",
   "total_transaction": "total transaction",
-  "created_date": "created date"
+  "created_date": "created date",
+  "status": "status"
 }

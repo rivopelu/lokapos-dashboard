@@ -31,6 +31,11 @@ export function SubscriptionPage() {
         <div>{dateHelper.toFormatDate(new Date(e.created_date), 'dd LLLL, yyyy - HH:mm')}</div>
       ),
     },
+    {
+      key: 'status',
+      headerTitle: t('status'),
+      layouts: (e: IResListOrderSubscription) => <div className="text-yellow-600 font-semibold">{e.status}</div>,
+    },
   ];
 
   return (
