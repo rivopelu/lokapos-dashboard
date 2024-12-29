@@ -32,6 +32,11 @@ export function SubscriptionPage() {
       ),
     },
     {
+      key: 'duration',
+      headerTitle: t('duration'),
+      layouts: (e: IResListOrderSubscription) => <div>{`${e.duration} day`}</div>,
+    },
+    {
       key: 'status',
       headerTitle: t('status'),
       layouts: (e: IResListOrderSubscription) => <div className="text-yellow-600 font-semibold">{e.status}</div>,
