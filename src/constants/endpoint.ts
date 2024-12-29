@@ -5,4 +5,5 @@ export const ENDPOINT = {
   LIST_SUBSCRIPTION: () => `/subscription/v1/list/active`,
   LIST_MERCHANT: () => `/merchant/v1/list`,
   CREATE_SUBSCRIPTION_ORDER: () => `/subscription/v1/order-subscription`,
+  GET_ORDER_SUBSCRIPTION: () => `/subscription/v1/order-list`,
 };

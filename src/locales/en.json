@@ -32,5 +32,8 @@
   "merchant_page_description": "for management merchant",
   "merchant": "merchant",
   "add_new_merchant": "add new merchant",
-  "subscription": "subscription"
+  "subscription": "subscription",
+  "package_name": "package name",
+  "total_transaction": "total transaction",
+  "created_date": "created date"
 }
