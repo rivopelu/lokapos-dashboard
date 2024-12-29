@@ -1,5 +1,5 @@
 import { t } from 'i18next';
-import { MdHome, MdInventory } from 'react-icons/md';
+import { MdHome, MdInventory, MdPayment } from 'react-icons/md';
 import { ROUTES } from '../routes/routes';
 
 export function useDataConstants() {
@@ -14,6 +14,11 @@ export function useDataConstants() {
       title: t('master_data'),
       path: ROUTES.MASTER_DATA(),
       icon: MdInventory,
+    },
+    {
+      title: t('subscription'),
+      path: ROUTES.SUBSCRIPTION_PAGE(),
+      icon: MdPayment,
     },
   ];
 

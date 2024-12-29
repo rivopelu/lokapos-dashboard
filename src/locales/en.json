@@ -31,5 +31,6 @@
   "get_started": "get started",
   "merchant_page_description": "for management merchant",
   "merchant": "merchant",
-  "add_new_merchant": "add new merchant"
+  "add_new_merchant": "add new merchant",
+  "subscription": "subscription"
 }

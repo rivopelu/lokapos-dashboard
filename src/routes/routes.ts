@@ -4,4 +4,5 @@ export const ROUTES = {
   SIGN_UP: () => `/auth/sign-up`,
   MASTER_DATA: () => `/master-data`,
   MERCHANT: () => `/master-data/merchant`,
+  SUBSCRIPTION_PAGE: () => `/subscription`,
 };
