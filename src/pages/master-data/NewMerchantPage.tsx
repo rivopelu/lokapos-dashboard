@@ -4,6 +4,7 @@ import { PageContainer } from '../../components/PageContainer';
 import { PageHeader } from '../../components/PageHeader';
 import { Divider } from '@mui/material';
 import { InputText } from '../../components/InputText';
+import { AreaFormModule } from '../../components/AreaFormModule';
 
 export function NewMerchantPage() {
   return (
@@ -17,10 +18,9 @@ export function NewMerchantPage() {
             <h1>{t('new_merchant')}</h1>
           </CardBody>
           <Divider />
-          <CardBody>
-            <div>
-              <InputText required label={t('merchant_name')} placeholder={t('insert_merchant_name')} />
-            </div>
+          <CardBody className="grid gap-4">
+            <InputText required label={t('merchant_name')} placeholder={t('insert_merchant_name')} />
+            <AreaFormModule />
           </CardBody>
         </MainCard>
       </PageContainer>

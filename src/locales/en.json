@@ -39,5 +39,13 @@
   "status": "status",
   "new_merchant": "new merchant",
   "merchant_name": "merchant name",
-  "insert_merchant_name": "insert merchant name"
+  "insert_merchant_name": "insert merchant name",
+  "province": "province",
+  "city": "city",
+  "district": "district",
+  "sub_district": "sub district",
+  "select_province": "select province",
+  "select_city": "select city",
+  "select_district": "select district",
+  "select_sub_district": "select sub district"
 }
