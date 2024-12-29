@@ -5,6 +5,8 @@ import { PageHeader } from '../../components/PageHeader';
 import { useMerchantPage } from './useMerchantpage';
 import { Button } from '@mui/material';
 import { MdAdd } from 'react-icons/md';
+import { Link } from 'react-router-dom';
+import { ROUTES } from '../../routes/routes';
 
 export function MerchantPage() {
   const page = useMerchantPage();
@@ -14,9 +16,11 @@ export function MerchantPage() {
         <div className="flex justify-between">
           <PageHeader title={t('merchant')} description={t('merchant_page_description')} />
           <div>
-            <Button endIcon={<MdAdd />} variant="contained">
-              {t('add_new_merchant')}
-            </Button>
+            <Link to={ROUTES.NEW_MERCHANT()}>
+              <Button endIcon={<MdAdd />} variant="contained">
+                {t('add_new_merchant')}
+              </Button>
+            </Link>
           </div>
         </div>
         <div className="grid grid-cols-3 gap-4">

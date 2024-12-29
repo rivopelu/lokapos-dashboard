@@ -5,4 +5,5 @@ export const ROUTES = {
   MASTER_DATA: () => `/master-data`,
   MERCHANT: () => `/master-data/merchant`,
   SUBSCRIPTION_PAGE: () => `/subscription`,
+  NEW_MERCHANT: () => `/master-data/merchant/new`,
 };

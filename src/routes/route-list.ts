@@ -8,6 +8,7 @@ import { SignUpPage } from '../pages/auth/SignUp';
 import { MasterDataPage } from '../pages/MasterDataPage';
 import { MerchantPage } from '../pages/master-data/MerchantPage';
 import { SubscriptionPage } from '../pages/subscription/SubscriptionPage';
+import { NewMerchantPage } from '../pages/master-data/NewMerchantPage';
 
 interface IRouteList {
   elements: () => Element;
@@ -44,6 +45,11 @@ export const routeList: IRouteList[] = [
   {
     elements: SubscriptionPage,
     route: ROUTES.SUBSCRIPTION_PAGE(),
+    type: PAGE_TYPE_ENUM.PRIMARY,
+  },
+  {
+    elements: NewMerchantPage,
+    route: ROUTES.NEW_MERCHANT(),
     type: PAGE_TYPE_ENUM.PRIMARY,
   },
 ];

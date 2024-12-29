@@ -36,5 +36,8 @@
   "package_name": "package name",
   "total_transaction": "total transaction",
   "created_date": "created date",
-  "status": "status"
+  "status": "status",
+  "new_merchant": "new merchant",
+  "merchant_name": "merchant name",
+  "insert_merchant_name": "insert merchant name"
 }
