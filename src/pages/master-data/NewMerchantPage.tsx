@@ -2,9 +2,10 @@ import { t } from 'i18next';
 import { CardBody, MainCard } from '../../components/MainLogo';
 import { PageContainer } from '../../components/PageContainer';
 import { PageHeader } from '../../components/PageHeader';
-import { Divider } from '@mui/material';
+import { Button, Divider } from '@mui/material';
 import { InputText } from '../../components/InputText';
 import { AreaFormModule } from '../../components/AreaFormModule';
+import { InputTextarea } from '../../components/InputTextArea';
 
 export function NewMerchantPage() {
   return (
@@ -20,7 +21,12 @@ export function NewMerchantPage() {
           <Divider />
           <CardBody className="grid gap-4">
             <InputText required label={t('merchant_name')} placeholder={t('insert_merchant_name')} />
-            <AreaFormModule />
+            <div className="grid grid-cols-2 gap-6">
+              <AreaFormModule />
+            </div>
+            <InputTextarea label={t('address')} placeholder={t('insert_address')} name="address" />
+
+            <Button variant="contained">{t('submit')}</Button>
           </CardBody>
         </MainCard>
       </PageContainer>

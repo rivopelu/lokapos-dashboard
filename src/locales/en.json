@@ -30,6 +30,7 @@
   "master_data": "master data",
   "get_started": "get started",
   "merchant_page_description": "for management merchant",
+  "submit": "submit",
   "merchant": "merchant",
   "add_new_merchant": "add new merchant",
   "subscription": "subscription",
@@ -47,5 +48,7 @@
   "select_province": "select province",
   "select_city": "select city",
   "select_district": "select district",
-  "select_sub_district": "select sub district"
+  "select_sub_district": "select sub district",
+  "address": "address",
+  "insert_address": "insert address"
 }
