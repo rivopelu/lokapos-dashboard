@@ -50,5 +50,6 @@
   "select_district": "select district",
   "select_sub_district": "select sub district",
   "address": "address",
-  "insert_address": "insert address"
+  "insert_address": "insert address",
+  "merchant_success_created": "merchant success created"
 }

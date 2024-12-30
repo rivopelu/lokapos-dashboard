@@ -1,14 +1,14 @@
-import { Fragment, useEffect, useState } from 'react';
-import { AreaAction } from '../redux/actions/area.actions';
-import { useAppDispatch, useAppSelector } from '../redux/store';
-import { IAreaSlice } from '../redux/reducers/area.reducer';
-import { InputAutocomplete } from './InputAutocomplete';
 import { t } from 'i18next';
+import { Fragment, useEffect, useState } from 'react';
 import { IAreaData, ILabelValue } from '../interfaces/feature-type-interface';
+import { AreaAction } from '../redux/actions/area.actions';
+import { IAreaSlice } from '../redux/reducers/area.reducer';
+import { useAppDispatch, useAppSelector } from '../redux/store';
 import { InputSelect } from './InputSelect';
 
-export function AreaFormModule() {
+export function AreaFormModule(props: IProps) {
   const Area: IAreaSlice = useAppSelector((state) => state.Area);
+  const formik = props.formik;
 
   const [result, setResult] = useState<IAreaData>({
     provinceId: undefined,
@@ -27,10 +27,6 @@ export function AreaFormModule() {
   const areaAction = new AreaAction();
 
   useEffect(() => {
-    console.log(result);
-  }, [result]);
-
-  useEffect(() => {
     dispatch(areaAction.getProvince());
   }, []);
 
@@ -39,12 +35,18 @@ export function AreaFormModule() {
     if (e) {
       dispatch(areaAction.getCity(e));
     }
+    if (formik) {
+      formik.setFieldValue('province_id', e);
+    }
   }
 
   function onChangeCity(e?: number) {
     setResult({ cityId: e, districtId: undefined, subDistrictId: undefined, provinceId: result.provinceId });
     if (e) {
       dispatch(areaAction.getDistrict(e));
+    }
+    if (formik) {
+      formik.setFieldValue('city_id', e);
     }
   }
 
@@ -53,10 +55,16 @@ export function AreaFormModule() {
     if (e) {
       dispatch(areaAction.getSubDistrict(e));
     }
+    if (formik) {
+      formik.setFieldValue('district_id', e);
+    }
   }
 
   function onChangeSubDistrict(e?: number) {
     setResult({ ...result, subDistrictId: e });
+    if (formik) {
+      formik.setFieldValue('sub_district_id', e);
+    }
   }
 
   useEffect(() => {
@@ -144,4 +152,8 @@ export function AreaFormModule() {
       />
     </Fragment>
   );
+}
+
+interface IProps {
+  formik?: any;
 }
