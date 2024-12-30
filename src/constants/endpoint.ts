@@ -8,4 +8,6 @@ export const ENDPOINT = {
   GET_ORDER_SUBSCRIPTION: () => `/subscription/v1/order-list`,
   GET_LIST_PROVINCE: () => `/area/v1/province`,
   GET_LIST_CITY: (id: number) => `/area/v1/city/${id}`,
+  GET_LIST_DISTRICT: (id: number) => `/area/v1/district/${id}`,
+  GET_LIST_SUB_DISTRICT: (id: number) => `/area/v1/sub-district/${id}`,
 };

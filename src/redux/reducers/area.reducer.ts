@@ -5,6 +5,8 @@ import { BasePayload, IPayloadData } from '../../models/response/IResModel';
 export interface IAreaSlice {
   listProvince?: IPayloadData<IResArea[]>;
   listCity?: IPayloadData<IResArea[]>;
+  listDistrict?: IPayloadData<IResArea[]>;
+  listSubDistrict?: IPayloadData<IResArea[]>;
 }
 
 const initValue: IAreaSlice = {};
@@ -18,6 +20,12 @@ export const AreaSlice = createSlice({
     },
     getCity: (state: IAreaSlice, action: BasePayload<IResArea[]>) => {
       state.listCity = action.payload;
+    },
+    getDistrict: (state: IAreaSlice, action: BasePayload<IResArea[]>) => {
+      state.listDistrict = action.payload;
+    },
+    getSubDistrict: (state: IAreaSlice, action: BasePayload<IResArea[]>) => {
+      state.listSubDistrict = action.payload;
     },
   },
 });
