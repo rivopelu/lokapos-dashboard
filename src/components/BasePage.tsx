@@ -5,6 +5,7 @@ import { STYLE_VARIABLE } from '../constants/style-variable';
 import { TopBar } from './Topbar';
 import { useBasePage } from '../hooks/useBasePage.ts';
 import { MainLoading } from './MainLoading.tsx';
+import { TopAlert } from './TopAlert.tsx';
 
 export function BasePage(props: IProps) {
   useBasePage();
@@ -28,7 +29,8 @@ export function BasePage(props: IProps) {
   }
 
   return (
-    <div>
+    <div className="relative">
+      <TopAlert />
       <MainLoading />
       {checkComponent()}
     </div>

@@ -53,5 +53,7 @@
   "insert_address": "insert address",
   "merchant_success_created": "merchant success created",
   "no_data_available": "no data available",
-  "payment_success": "payment success"
+  "payment_success": "payment success",
+  "email_not_verified_alert": "your email not verified !!",
+  "verify_now": "verify now"
 }

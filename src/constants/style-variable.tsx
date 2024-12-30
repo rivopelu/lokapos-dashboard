@@ -3,6 +3,7 @@ export const STYLE_VARIABLE = {
     SIDEBAR_WIDTH: 300,
     TOP_BAR_HEIGHT: 58,
     SIDE_CASHIER_WIDTH: 620,
+    TOP_ALERT_HEIGHT: 48,
   },
   COLORS: {
     PRIMARY: {
