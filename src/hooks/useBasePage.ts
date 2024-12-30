@@ -15,7 +15,10 @@ export function useBasePage() {
   useEffect(() => {
     if (!Account?.getMe?.data) {
       if (location.pathname !== ROUTES.SIGN_IN()) {
-        dispatch(accountActions.getMe()).then();
+        if (location.pathname !== ROUTES.SIGN_UP()) {
+          dispatch(accountActions.getMe()).then();
+          dispatch(accountActions.getMe()).then();
+        }
       }
     }
   }, [location.pathname]);
