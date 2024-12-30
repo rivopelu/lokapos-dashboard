@@ -6,10 +6,13 @@ import { t } from 'i18next';
 import { HttpService } from '../../services/http.service';
 import ErrorService from '../../services/error.service';
 import { ENDPOINT } from '../../constants/endpoint';
+import { useNavigate } from 'react-router-dom';
+import { ROUTES } from '../../routes/routes';
 
 export function useSignUpPage() {
   const httpService = new HttpService();
   const errorService = new ErrorService();
+  const navigate = useNavigate();
 
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [loadingSubmit, setLoadingSubmit] = useState<boolean>(false);
@@ -43,6 +46,7 @@ export function useSignUpPage() {
     validationSchema: validationScheme,
     onSubmit: (e) => {
       onSubmitSignUp(e);
+      navigate(ROUTES.SIGN_IN());
     },
   });
 

@@ -1,0 +1,3 @@
+export enum TOP_ALERT_ENUM {
+  VERIFIED_EMAIL,
+}
