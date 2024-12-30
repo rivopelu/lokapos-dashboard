@@ -5,7 +5,7 @@ export function MainCard(props: IProps) {
 }
 
 export function CardBody(props: IProps) {
-  return <div className={`p-6 ${props.children}`}>{props.children}</div>;
+  return <div className={`p-6 ${props.className}`}>{props.children}</div>;
 }
 interface IProps {
   children: ReactNode;

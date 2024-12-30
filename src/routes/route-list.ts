@@ -1,10 +1,14 @@
 import { jsx } from '@emotion/react';
 import { PAGE_TYPE_ENUM } from '../enums/page-type-enum';
-import { SignInPage } from '../pages/SIgnInPage';
+import { SignInPage } from '../pages/auth/SIgnInPage';
 import { ROUTES } from './routes';
 import Element = jsx.JSX.Element;
 import { HomePage } from '../pages/HomePage';
-import { SignUpPage } from '../pages/SignUp';
+import { SignUpPage } from '../pages/auth/SignUp';
+import { MasterDataPage } from '../pages/MasterDataPage';
+import { MerchantPage } from '../pages/master-data/MerchantPage';
+import { SubscriptionPage } from '../pages/subscription/SubscriptionPage';
+import { NewMerchantPage } from '../pages/master-data/NewMerchantPage';
 
 interface IRouteList {
   elements: () => Element;
@@ -16,7 +20,7 @@ export const routeList: IRouteList[] = [
   {
     elements: HomePage,
     route: ROUTES.HOME(),
-    type: PAGE_TYPE_ENUM.FULL_PAGE,
+    type: PAGE_TYPE_ENUM.PRIMARY,
   },
   {
     elements: SignInPage,
@@ -27,5 +31,25 @@ export const routeList: IRouteList[] = [
     elements: SignUpPage,
     route: ROUTES.SIGN_UP(),
     type: PAGE_TYPE_ENUM.FULL_PAGE,
+  },
+  {
+    elements: MasterDataPage,
+    route: ROUTES.MASTER_DATA(),
+    type: PAGE_TYPE_ENUM.PRIMARY,
+  },
+  {
+    elements: MerchantPage,
+    route: ROUTES.MERCHANT(),
+    type: PAGE_TYPE_ENUM.PRIMARY,
+  },
+  {
+    elements: SubscriptionPage,
+    route: ROUTES.SUBSCRIPTION_PAGE(),
+    type: PAGE_TYPE_ENUM.PRIMARY,
+  },
+  {
+    elements: NewMerchantPage,
+    route: ROUTES.NEW_MERCHANT(),
+    type: PAGE_TYPE_ENUM.PRIMARY,
   },
 ];
