@@ -39,7 +39,16 @@ export function SubscriptionPage() {
     {
       key: 'status',
       headerTitle: t('status'),
-      layouts: (e: IResListOrderSubscription) => <div className="text-yellow-600 font-semibold">{e.status}</div>,
+      layouts: (e: IResListOrderSubscription) => {
+        switch (e.status) {
+          case 'SUCCESS':
+            return <div className="text-green-600 font-semibold">{e.status}</div>;
+          case 'PENDING':
+            return <div className="text-yellow-600 font-semibold">{e.status}</div>;
+          case 'CANCELLED':
+            return <div className="text-red-600 font-semibold">{e.status}</div>;
+        }
+      },
     },
   ];
 

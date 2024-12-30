@@ -1,22 +1,29 @@
-import { IResSubscriptionPackage } from '../models/response/IResSubscriptionPackage';
-import { CardBody, MainCard } from './MainLogo';
+import LoadingButton from '@mui/lab/LoadingButton';
 import { t } from 'i18next';
-import { NumberFormatterHelper } from '../helper/number-format-helper';
-import { HttpService } from '../services/http.service';
+import { useState } from 'react';
 import { ENDPOINT } from '../constants/endpoint';
+import { NumberFormatterHelper } from '../helper/number-format-helper';
 import { IReqCreateSubscriptionOrder } from '../models/request/IReqCreateSubscriptionOrder';
 import { IResCreateOrderPaymentSubscription } from '../models/response/IResCreatePaymentOrderSubscription';
-import ErrorService from '../services/error.service';
 import { BaseResponse } from '../models/response/IResModel';
-import { useState } from 'react';
-import LoadingButton from '@mui/lab/LoadingButton';
+import { IResSubscriptionPackage } from '../models/response/IResSubscriptionPackage';
+import ErrorService from '../services/error.service';
+import { HttpService } from '../services/http.service';
+import { UiServices } from '../services/ui.service';
+import { CardBody, MainCard } from './MainLogo';
+import { useAppDispatch } from '../redux/store';
+import { AccountActions } from '../redux/actions/account.actions';
 
 export function SubscriptionCard(props: IProps) {
   const [loading, setLoading] = useState<boolean>(false);
 
+  const dispatch = useAppDispatch();
+
+  const accountAction = new AccountActions();
   const numberFormatHelper = new NumberFormatterHelper();
   const errorService = new ErrorService();
   const httpService = new HttpService();
+  const uiService = new UiServices();
 
   function onSubscribe() {
     setLoading(true);
@@ -29,7 +36,16 @@ export function SubscriptionCard(props: IProps) {
         const token = res.data.response_data.token;
         if (token) {
           // @ts-ignore
-          window.snap.pay(token);
+          window.snap.pay(token, {
+            onSuccess: function () {
+              dispatch(accountAction.getMe());
+              uiService.handleSnackbarSuccess(t('payment_success'));
+            },
+
+            onClose: function () {
+              console.log('customer closed the popup without finishing the payment');
+            },
+          });
         }
         setLoading(false);
       })

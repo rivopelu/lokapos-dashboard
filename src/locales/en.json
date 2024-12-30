@@ -51,5 +51,7 @@
   "select_sub_district": "select sub district",
   "address": "address",
   "insert_address": "insert address",
-  "merchant_success_created": "merchant success created"
+  "merchant_success_created": "merchant success created",
+  "no_data_available": "no data available",
+  "payment_success": "payment success"
 }
