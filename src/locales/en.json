@@ -61,5 +61,8 @@
   "resend_email_verfication": "resend email verification",
   "email_verification_success": "email verification success",
   "otp_resend_to_email_success": "otp resend to email successfully",
-  "otp_exipre_in_minute": "otp expire in {{minute}} minute"
+  "otp_exipre_in_minute": "otp expire in {{minute}} minute",
+  "your_business_not_registered": "Your business not registered",
+  "business_not_registered_description": "Register your business now to subscribe and unlock all features! ",
+  "register_here": "register here"
 }
