@@ -58,5 +58,8 @@
   "verify_now": "verify now",
   "otp_verification": "OTP Verification",
   "otp_verification_description": "Enter the OTP we sent to your email to proceed. This step ensures the security of your data and transactions.",
-  "resend_email_verfication": "resend email verification"
+  "resend_email_verfication": "resend email verification",
+  "email_verification_success": "email verification success",
+  "otp_resend_to_email_success": "otp resend to email successfully",
+  "otp_exipre_in_minute": "otp expire in {{minute}} minute"
 }

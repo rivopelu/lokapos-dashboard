@@ -11,4 +11,6 @@ export const ENDPOINT = {
   GET_LIST_DISTRICT: (id: number) => `/area/v1/district/${id}`,
   GET_LIST_SUB_DISTRICT: (id: number) => `/area/v1/sub-district/${id}`,
   CREATE_NEW_MERCHANT: () => `/merchant/v1/new`,
+  VERIFY_EMAIL: () => `/account/v1/verify-email`,
+  RESEND_VERIFICATION_EMAIL: () => `/account/v1/resend-verification-email`,
 };

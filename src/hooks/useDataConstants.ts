@@ -4,6 +4,7 @@ import { ROUTES } from '../routes/routes';
 
 export function useDataConstants() {
   const tax = 11;
+  const emailVerificationOtpExpireTimeInMinute = 3;
   const sidebarDataList = [
     {
       title: t('home'),
@@ -30,5 +31,5 @@ export function useDataConstants() {
     },
   ];
 
-  return { sidebarDataList, tax, listTableMasterDataPage };
+  return { sidebarDataList, tax, listTableMasterDataPage, emailVerificationOtpExpireTimeInMinute };
 }

@@ -46,7 +46,6 @@ export function useSignUpPage() {
     validationSchema: validationScheme,
     onSubmit: (e) => {
       onSubmitSignUp(e);
-      navigate(ROUTES.SIGN_IN());
     },
   });
 
@@ -56,6 +55,7 @@ export function useSignUpPage() {
       .POST(ENDPOINT.SIGN_UP(), value)
       .then(() => {
         setLoadingSubmit(false);
+        navigate(ROUTES.SIGN_IN());
       })
       .catch((e) => {
         errorService.fetchApiError(e);
