@@ -1,12 +1,11 @@
-import { useState } from 'react';
-import { CardBody, MainCard } from '../../components/MainLogo';
-import OtpInput from 'react-otp-input';
-import { t } from 'i18next';
 import { Button } from '@mui/material';
+import { t } from 'i18next';
+import OtpInput from 'react-otp-input';
+import { CardBody, MainCard } from '../../components/MainLogo';
+import { useVerifyEmailPage } from './useVerifyEmailPage';
 
 export function VerifyEmailPage() {
-  const [otp, setOtp] = useState('');
-
+  const page = useVerifyEmailPage();
   return (
     <div className="min-h-screen h-full flex items-center justify-center">
       <MainCard className="max-w-xl">
@@ -16,8 +15,8 @@ export function VerifyEmailPage() {
             <p className="mx-8 text-slate-600">{t('otp_verification_description')}</p>
           </div>
           <OtpInput
-            value={otp}
-            onChange={setOtp}
+            value={page.otp}
+            onChange={page.setOtp}
             numInputs={4}
             renderSeparator={<span className="mx-2">-</span>}
             renderInput={(props) => (
@@ -30,7 +29,7 @@ export function VerifyEmailPage() {
             )}
           />
           <div className="grid gap-2 w-full">
-            <Button size="large" variant="contained" fullWidth>
+            <Button onClick={page.onSubmitVerify} disabled={!page.otp} size="large" variant="contained" fullWidth>
               {t('submit')}
             </Button>
             <div className="mt-3 hover:underline cursor-pointer text-primary-main active:text-primary-main/40 duration-300">
