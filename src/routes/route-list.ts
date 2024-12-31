@@ -9,6 +9,7 @@ import { MasterDataPage } from '../pages/MasterDataPage';
 import { MerchantPage } from '../pages/master-data/MerchantPage';
 import { SubscriptionPage } from '../pages/subscription/SubscriptionPage';
 import { NewMerchantPage } from '../pages/master-data/NewMerchantPage';
+import { VerifyEmailPage } from '../pages/auth/VerifyEmailPage';
 
 interface IRouteList {
   elements: () => Element;
@@ -51,5 +52,10 @@ export const routeList: IRouteList[] = [
     elements: NewMerchantPage,
     route: ROUTES.NEW_MERCHANT(),
     type: PAGE_TYPE_ENUM.PRIMARY,
+  },
+  {
+    elements: VerifyEmailPage,
+    route: ROUTES.VERIFY_EMAIL(),
+    type: PAGE_TYPE_ENUM.FULL_PAGE,
   },
 ];

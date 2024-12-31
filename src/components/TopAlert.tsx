@@ -6,6 +6,8 @@ import { useAppDispatch, useAppSelector } from '../redux/store';
 import { IAccountSlice } from '../redux/reducers/account.reducers';
 import { TOP_ALERT_ENUM } from '../enums/top-alert-enum';
 import { AccountActions } from '../redux/actions/account.actions';
+import { Link } from 'react-router-dom';
+import { ROUTES } from '../routes/routes';
 
 export function TopAlert() {
   const Account: IAccountSlice = useAppSelector((state) => state.Account);
@@ -28,7 +30,9 @@ export function TopAlert() {
             <div className="">
               <div>
                 {t('email_not_verified_alert')}{' '}
-                <span className="border-b cursor-pointer hover:text-slate-300">{t('verify_now')}</span>
+                <Link to={ROUTES.VERIFY_EMAIL()} className="border-b cursor-pointer hover:text-slate-300">
+                  {t('verify_now')}
+                </Link>
               </div>
             </div>
             <IconButton color="inherit" onClick={onClose}>

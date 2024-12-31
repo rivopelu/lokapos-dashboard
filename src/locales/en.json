@@ -55,5 +55,8 @@
   "no_data_available": "no data available",
   "payment_success": "payment success",
   "email_not_verified_alert": "your email not verified !!",
-  "verify_now": "verify now"
+  "verify_now": "verify now",
+  "otp_verification": "OTP Verification",
+  "otp_verification_description": "Enter the OTP we sent to your email to proceed. This step ensures the security of your data and transactions.",
+  "resend_email_verfication": "resend email verification"
 }
