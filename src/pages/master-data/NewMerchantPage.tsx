@@ -1,4 +1,5 @@
-import { Button, Divider } from '@mui/material';
+import LoadingButton from '@mui/lab/LoadingButton';
+import { Divider } from '@mui/material';
 import { t } from 'i18next';
 import { AreaFormModule } from '../../components/AreaFormModule';
 import { InputText } from '../../components/InputText';
@@ -7,7 +8,6 @@ import { CardBody, MainCard } from '../../components/MainLogo';
 import { PageContainer } from '../../components/PageContainer';
 import { PageHeader } from '../../components/PageHeader';
 import { useNewMerchantPage } from './useNewMerchantPage';
-import LoadingButton from '@mui/lab/LoadingButton';
 
 export function NewMerchantPage() {
   const page = useNewMerchantPage();

@@ -11,10 +11,3 @@ export class UiServices {
     }
   }
 }
-
-interface ISwallConfig {
-  title?: string;
-  message?: string;
-  icon?: 'success' | 'error' | string;
-  onOke?: () => void;
-}
