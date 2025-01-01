@@ -9,4 +9,5 @@ export const ROUTES = {
   NEW_MERCHANT: () => `/master-data/merchant/new`,
   REGISTER_BUSINESS: () => `/business-register`,
   PROFILE: () => `/profile`,
+  PAYMENT_METHOD: (orderId: string | null) => `/payment/method${orderId ? 'packageId=' + orderId : ''}`,
 };

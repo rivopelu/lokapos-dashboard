@@ -12,6 +12,7 @@ import { NewMerchantPage } from '../pages/master-data/NewMerchantPage';
 import { VerifyEmailPage } from '../pages/auth/VerifyEmailPage';
 import { BusinessRegisterPage } from '../pages/master-data/BusinessRegisterPage';
 import { ProfilePage } from '../pages/profile/ProfilePage';
+import { PaymentMethodPage } from '../pages/payment/PaymentMethodPage';
 
 interface IRouteList {
   elements: () => Element;
@@ -68,6 +69,11 @@ export const routeList: IRouteList[] = [
   {
     elements: ProfilePage,
     route: ROUTES.PROFILE(),
+    type: PAGE_TYPE_ENUM.SECONDARY,
+  },
+  {
+    elements: PaymentMethodPage,
+    route: ROUTES.PAYMENT_METHOD(null),
     type: PAGE_TYPE_ENUM.SECONDARY,
   },
 ];
