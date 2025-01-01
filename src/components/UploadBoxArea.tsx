@@ -18,7 +18,7 @@ import ErrorService from '../services/error.service';
 import getCroppedImg from '../helper/cropper-helper';
 
 export function UploadBox(props: IProps) {
-  const [aspectSet] = useState<number>(1);
+  const [aspectSet] = useState<number>(props.ratio || 1);
   const [zoom, setZoom] = useState<number>(1);
   const [crop, setCrop] = useState<Point>({ x: 0, y: 0 });
   const [fileCrop, setFileCrop] = useState<any | null>(null);
@@ -85,7 +85,7 @@ export function UploadBox(props: IProps) {
           </div>
         </FormLabel>
         <div
-          className={`w-full relative ${props.size === 'sm' ? 'h-[200px]' : 'h-[230px] '} border border-slate-300 duration-300 rounded-lg flex flex-col justify-center items-center  hover:bg-primary-10 ${props.errorMessage ? 'bg-red-700/20 border-red-700' : 'bg-white'}`}
+          className={`w-full relative ${props.size === 'sm' ? 'h-[200px]' : 'h-[230px] '} border border-slate-300 duration-300 rounded flex flex-col justify-center items-center  hover:bg-primary-10 ${props.errorMessage ? 'bg-red-700/20 border-red-700' : 'bg-white'}`}
         >
           {props.values ? (
             <div>
@@ -175,6 +175,7 @@ interface IProps {
   required?: boolean;
   name?: string;
   values?: string;
+  ratio?: number;
   size?: 'lg' | 'sm';
   onChange?: (e: string) => void;
   onChaneOriginal?: (e: string) => void;

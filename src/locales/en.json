@@ -12,6 +12,7 @@
   "sign_up": "sign up",
   "name": "name",
   "insert_name": "insert name",
+  "show-make-sure-data-alert": "Make sure it has been entered correctly because there are no 2 confirmation steps",
   "first_name": "first name",
   "insert_first_name": "insert first name",
   "last_name": "last name",
@@ -77,5 +78,18 @@
   "menu_page_description": "for management your serving menu",
   "create_new_serving_menu": "create new serving menu",
   "menu_name": "menu name",
-  "price": "price"
+  "price": "price",
+  "new_serving_menu": "new serving menu",
+  "insert_your_menu_information": "insert your menu information",
+  "menu_image": "menu image",
+  "insert_menu_name": "insert menu name",
+  "description": "description",
+  "insert_menu_description": "insert menu description",
+  "menu_description": "menu description",
+  "menu_price": "menu price",
+  "insert_menu_price": "insert menu price",
+  "insert_price": "insert price",
+  "category": "category",
+  "select_menu_category": "select menu category",
+  "menu_success_created": "menu success created"
 }

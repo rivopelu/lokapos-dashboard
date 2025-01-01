@@ -16,4 +16,5 @@ export const ENDPOINT = {
   REGISTER_NEW_BUSINESS: () => `/business/v1/new`,
   LIST_CATEGORIES: () => `/master-data/v1/category/list`,
   LIST_MENU: () => `/master-data/v1/menu/list`,
+  CREATE_NEW_MENU: () => `/master-data/v1/menu/new`,
 };

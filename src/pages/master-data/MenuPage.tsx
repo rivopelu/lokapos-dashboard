@@ -22,7 +22,15 @@ export function MenuPage() {
       key: 'name',
       headerTitle: t('menu_name'),
       layouts: (e: IResListMenu) => {
-        return <div>{e.name}</div>;
+        return (
+          <div className="flex gap-5">
+            <img src={e.image} alt={e.name} className="h-16 aspect-video" />
+            <div>
+              <div className="text-xl capitalize">{e.name}</div>
+              <p className="text-slate-500">{e.description}</p>
+            </div>
+          </div>
+        );
       },
     },
     {
