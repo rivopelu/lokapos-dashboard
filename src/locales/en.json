@@ -64,5 +64,11 @@
   "otp_exipre_in_minute": "otp expire in {{minute}} minute",
   "your_business_not_registered": "Your business not registered",
   "business_not_registered_description": "Register your business now to subscribe and unlock all features! ",
-  "register_here": "register here"
+  "register_here": "register here",
+  "business_name": "business name",
+  "insert_business_name": "insert business name",
+  "register_your_business": "Register your business",
+  "business_logo": "business logo",
+  "upload-images": "upload images",
+  "your_businness_successfully_register": "Your business susccessfully register"
 }

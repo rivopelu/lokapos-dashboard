@@ -62,6 +62,6 @@ export const routeList: IRouteList[] = [
   {
     elements: BusinessRegisterPage,
     route: ROUTES.REGISTER_BUSINESS(),
-    type: PAGE_TYPE_ENUM.FULL_PAGE,
+    type: PAGE_TYPE_ENUM.SECONDARY,
   },
 ];

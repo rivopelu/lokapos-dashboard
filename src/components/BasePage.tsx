@@ -27,6 +27,21 @@ export function BasePage(props: IProps) {
           </div>
         </>
       );
+    } else if (props.type === PAGE_TYPE_ENUM.SECONDARY) {
+      return (
+        <>
+          <TopAlert />
+
+          <div className="flex flex-1">
+            <TopBar />
+            <div className={'  w-full flex-1'}>
+              <div style={{ height: STYLE_VARIABLE.SIZE.TOP_BAR_HEIGHT }}></div>
+              <div className={'grid gap-8 flex-1 h-full'}>{props.children}</div>
+              <div style={{ height: STYLE_VARIABLE.SIZE.TOP_BAR_HEIGHT }}></div>
+            </div>
+          </div>
+        </>
+      );
     } else {
       return <div>{props.children}</div>;
     }
