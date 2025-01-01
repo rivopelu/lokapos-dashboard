@@ -14,6 +14,7 @@ import { BusinessRegisterPage } from '../pages/master-data/BusinessRegisterPage'
 import { ProfilePage } from '../pages/profile/ProfilePage';
 import { PaymentMethodPage } from '../pages/payment/PaymentMethodPage';
 import { MenuPage } from '../pages/master-data/MenuPage';
+import { CreateNewMenuPage } from '../pages/master-data/CreateNewMenuPage';
 
 interface IRouteList {
   elements: () => Element;
@@ -80,6 +81,11 @@ export const routeList: IRouteList[] = [
   {
     elements: MenuPage,
     route: ROUTES.MENU_PAGE(),
+    type: PAGE_TYPE_ENUM.PRIMARY,
+  },
+  {
+    elements: CreateNewMenuPage,
+    route: ROUTES.NEW_MENU_PAGE(),
     type: PAGE_TYPE_ENUM.PRIMARY,
   },
 ];

@@ -11,4 +11,5 @@ export const ROUTES = {
   PROFILE: () => `/profile`,
   PAYMENT_METHOD: (orderId: string | null) => `/payment/method${orderId ? 'packageId=' + orderId : ''}`,
   MENU_PAGE: () => `/master-data/menu`,
+  NEW_MENU_PAGE: () => `/master-data/menu/new`,
 };

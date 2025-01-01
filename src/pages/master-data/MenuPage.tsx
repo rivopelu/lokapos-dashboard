@@ -8,6 +8,8 @@ import { IResListMenu } from '../../models/response/IResListMenu';
 import { useMenuPage } from './useMenuPage';
 import { NumberFormatterHelper } from '../../helper/number-format-helper';
 import DateHelper from '../../helper/date-helper';
+import { Link } from 'react-router-dom';
+import { ROUTES } from '../../routes/routes';
 
 export function MenuPage() {
   const page = useMenuPage();
@@ -47,11 +49,11 @@ export function MenuPage() {
     <PageContainer className="my-10 grid gap-8">
       <div className="flex justify-between">
         <PageHeader title={t('menu')} description={t('menu_page_description')} />
-        <div>
+        <Link to={ROUTES.NEW_MENU_PAGE()}>
           <Button endIcon={<MdAdd />} variant="outlined">
             {t('create_new_serving_menu')}
           </Button>
-        </div>
+        </Link>
       </div>
       <MainTable loading={page.loading} data={page.listMenu} columns={tableColumn} />
     </PageContainer>
