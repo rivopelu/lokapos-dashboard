@@ -1,6 +1,8 @@
-import { Button, Checkbox, Divider, FormControlLabel } from '@mui/material';
+import LoadingButton from '@mui/lab/LoadingButton';
+import { Checkbox, Divider, FormControlLabel } from '@mui/material';
 import { t } from 'i18next';
 import { InputRupiah } from '../../components/InputRupiah';
+import { InputSelect } from '../../components/InputSelect';
 import { InputText } from '../../components/InputText';
 import { InputTextarea } from '../../components/InputTextArea';
 import { CardBody, MainCard } from '../../components/MainLogo';
@@ -8,8 +10,6 @@ import { PageContainer } from '../../components/PageContainer';
 import { PageHeader } from '../../components/PageHeader';
 import { UploadBox } from '../../components/UploadBoxArea';
 import { useCreateNewMenuPage } from './useCreateNewMenuPage';
-import { InputSelect } from '../../components/InputSelect';
-import LoadingButton from '@mui/lab/LoadingButton';
 
 export function CreateNewMenuPage() {
   const page = useCreateNewMenuPage();
