@@ -76,5 +76,6 @@
   "menu": "menu",
   "menu_page_description": "for management your serving menu",
   "create_new_serving_menu": "create new serving menu",
-  "menu_name": "menu name"
+  "menu_name": "menu name",
+  "price": "price"
 }
