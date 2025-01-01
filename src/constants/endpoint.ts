@@ -14,4 +14,5 @@ export const ENDPOINT = {
   VERIFY_EMAIL: () => `/account/v1/verify-email`,
   RESEND_VERIFICATION_EMAIL: () => `/account/v1/resend-verification-email`,
   REGISTER_NEW_BUSINESS: () => `/business/v1/new`,
+  LIST_CATEGORIES: () => `/master-data/v1/category/list`,
 };

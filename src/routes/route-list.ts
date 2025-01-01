@@ -5,7 +5,7 @@ import { ROUTES } from './routes';
 import Element = jsx.JSX.Element;
 import { HomePage } from '../pages/HomePage';
 import { SignUpPage } from '../pages/auth/SignUp';
-import { MasterDataPage } from '../pages/MasterDataPage';
+import { MasterDataPage } from '../pages/master-data/MasterDataPage';
 import { MerchantPage } from '../pages/master-data/MerchantPage';
 import { SubscriptionPage } from '../pages/subscription/SubscriptionPage';
 import { NewMerchantPage } from '../pages/master-data/NewMerchantPage';
