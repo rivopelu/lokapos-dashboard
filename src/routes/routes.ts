@@ -8,4 +8,5 @@ export const ROUTES = {
   SUBSCRIPTION_PAGE: () => `/subscription`,
   NEW_MERCHANT: () => `/master-data/merchant/new`,
   REGISTER_BUSINESS: () => `/business-register`,
+  PROFILE: () => `/profile`,
 };

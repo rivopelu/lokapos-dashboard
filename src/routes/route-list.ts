@@ -11,6 +11,7 @@ import { SubscriptionPage } from '../pages/subscription/SubscriptionPage';
 import { NewMerchantPage } from '../pages/master-data/NewMerchantPage';
 import { VerifyEmailPage } from '../pages/auth/VerifyEmailPage';
 import { BusinessRegisterPage } from '../pages/master-data/BusinessRegisterPage';
+import { ProfilePage } from '../pages/profile/ProfilePage';
 
 interface IRouteList {
   elements: () => Element;
@@ -62,6 +63,11 @@ export const routeList: IRouteList[] = [
   {
     elements: BusinessRegisterPage,
     route: ROUTES.REGISTER_BUSINESS(),
+    type: PAGE_TYPE_ENUM.SECONDARY,
+  },
+  {
+    elements: ProfilePage,
+    route: ROUTES.PROFILE(),
     type: PAGE_TYPE_ENUM.SECONDARY,
   },
 ];

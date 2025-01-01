@@ -34,7 +34,7 @@ export function TopBar() {
         }}
       >
         <MenuItem onClick={handleClose}>
-          <Link to={ROUTES.MASTER_DATA()} className="flex items-center">
+          <Link to={ROUTES.PROFILE()} className="flex items-center">
             <ListItemIcon>
               <MdPerson />
             </ListItemIcon>
@@ -42,7 +42,7 @@ export function TopBar() {
           </Link>
         </MenuItem>
         <MenuItem onClick={handleClose}>
-          <Link to={ROUTES.MASTER_DATA()} className="flex items-center">
+          <Link to={ROUTES.PROFILE()} className="flex items-center">
             <ListItemIcon>
               <MdSettings />
             </ListItemIcon>

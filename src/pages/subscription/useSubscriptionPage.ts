@@ -8,8 +8,10 @@ export function useSubscriptionPage() {
   const [listData, setListData] = useState<IResListOrderSubscription[]>([]);
 
   const dispatch = useAppDispatch();
+
   const subscriptinAction = new SubscriptionActions();
   const Subscription: ISubscriptionSlice = useAppSelector((state: any) => state.Subscription);
+  const loading = Subscription?.listOrderSubscription?.loading;
 
   useEffect(() => {
     dispatch(subscriptinAction.getOrderSubscription());
@@ -19,5 +21,5 @@ export function useSubscriptionPage() {
     setListData(Subscription?.listOrderSubscription?.data || []);
   }, [Subscription]);
 
-  return { listData };
+  return { listData, loading };
 }

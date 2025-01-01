@@ -56,7 +56,7 @@ export function SubscriptionPage() {
     <div className="mt-10">
       <PageContainer className="grid gap-8">
         <PageHeader title={t('subscription')} />
-        <MainTable columns={tableColumn} data={page.listData} />
+        <MainTable loading={page?.loading} columns={tableColumn} data={page.listData} />
       </PageContainer>
     </div>
   );
