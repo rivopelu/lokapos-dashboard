@@ -29,6 +29,11 @@ export function useDataConstants() {
       route: ROUTES.MERCHANT(),
       description: t('merchant_page_description'),
     },
+    {
+      title: t('menu'),
+      route: ROUTES.MENU_PAGE(),
+      description: t('menu_page_description'),
+    },
   ];
 
   return { sidebarDataList, tax, listTableMasterDataPage, emailVerificationOtpExpireTimeInMinute };

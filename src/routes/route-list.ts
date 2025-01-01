@@ -13,6 +13,7 @@ import { VerifyEmailPage } from '../pages/auth/VerifyEmailPage';
 import { BusinessRegisterPage } from '../pages/master-data/BusinessRegisterPage';
 import { ProfilePage } from '../pages/profile/ProfilePage';
 import { PaymentMethodPage } from '../pages/payment/PaymentMethodPage';
+import { MenuPage } from '../pages/master-data/MenuPage';
 
 interface IRouteList {
   elements: () => Element;
@@ -75,5 +76,10 @@ export const routeList: IRouteList[] = [
     elements: PaymentMethodPage,
     route: ROUTES.PAYMENT_METHOD(null),
     type: PAGE_TYPE_ENUM.SECONDARY,
+  },
+  {
+    elements: MenuPage,
+    route: ROUTES.MENU_PAGE(),
+    type: PAGE_TYPE_ENUM.PRIMARY,
   },
 ];

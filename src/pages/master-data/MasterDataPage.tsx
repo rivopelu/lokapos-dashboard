@@ -1,11 +1,11 @@
-import { Button, Card, Divider } from '@mui/material';
+import { Button, Divider } from '@mui/material';
 import { t } from 'i18next';
 import { MdAdd, MdArrowForward } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import { CardBody, MainCard } from '../../components/MainLogo';
 import { PageContainer } from '../../components/PageContainer';
-import { useDataConstants } from '../../hooks/useDataConstants';
 import { PageHeader } from '../../components/PageHeader';
+import { useDataConstants } from '../../hooks/useDataConstants';
 import { useMasterDataPage } from './useMasterDataPage';
 
 export function MasterDataPage() {
@@ -21,7 +21,7 @@ export function MasterDataPage() {
       </PageContainer>
       <Divider />
       <PageContainer className="g">
-        <div className="grid ">
+        <div className="grid grid-cols-2 gap-4">
           {data.listTableMasterDataPage.map((item, i) => (
             <MainCard key={i}>
               <CardBody>
