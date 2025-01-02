@@ -18,4 +18,5 @@ export const ENDPOINT = {
   LIST_MENU: () => `/master-data/v1/menu/list`,
   CREATE_NEW_MENU: () => `/master-data/v1/menu/new`,
   LIST_ACCOUNT: () => `/account/v1/admin/account-list`,
+  CREATE_ACCOUNT: () => `/account/v1/admin/create-account`,
 };

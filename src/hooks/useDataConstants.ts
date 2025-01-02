@@ -1,6 +1,8 @@
 import { t } from 'i18next';
 import { MdGroup, MdHome, MdInventory, MdPayment } from 'react-icons/md';
 import { ROUTES } from '../routes/routes';
+import { ILabelValue } from '../interfaces/feature-type-interface';
+import { ACCOUNT_ROLE_ENUM } from '../enums/account-role-enum';
 
 export function useDataConstants() {
   const tax = 11;
@@ -41,5 +43,16 @@ export function useDataConstants() {
     },
   ];
 
-  return { sidebarDataList, tax, listTableMasterDataPage, emailVerificationOtpExpireTimeInMinute };
+  const dataRole: ILabelValue<ACCOUNT_ROLE_ENUM>[] = [
+    {
+      label: 'Admin',
+      value: ACCOUNT_ROLE_ENUM.ADMIN,
+    },
+    {
+      label: 'Staff',
+      value: ACCOUNT_ROLE_ENUM.STAFF,
+    },
+  ];
+
+  return { sidebarDataList, tax, listTableMasterDataPage, emailVerificationOtpExpireTimeInMinute, dataRole };
 }
