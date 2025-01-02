@@ -3,6 +3,7 @@ import { MdGroup, MdHome, MdInventory, MdPayment } from 'react-icons/md';
 import { ROUTES } from '../routes/routes';
 import { ILabelValue } from '../interfaces/feature-type-interface';
 import { ACCOUNT_ROLE_ENUM } from '../enums/account-role-enum';
+import { ASSETS } from '../constants/assets';
 
 export function useDataConstants() {
   const tax = 11;
@@ -58,26 +59,32 @@ export function useDataConstants() {
     {
       name: 'BCA',
       key: 'bca',
+      image: ASSETS.BANK.BCA,
     },
     {
       name: 'BRI',
       key: 'bri',
+      image: ASSETS.BANK.BRI,
     },
     {
       name: 'BNI',
       key: 'bni',
+      image: ASSETS.BANK.BNI,
     },
     {
       name: 'Mandiri',
       key: 'mandiri',
+      image: ASSETS.BANK.MANDIRI,
     },
     {
       name: 'Permata',
       key: 'permata',
+      image: ASSETS.BANK.PERMATA,
     },
     {
       name: 'CIMB',
       key: 'cimb',
+      image: ASSETS.BANK.CIMB,
     },
   ];
 
