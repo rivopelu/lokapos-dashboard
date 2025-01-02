@@ -54,5 +54,39 @@ export function useDataConstants() {
     },
   ];
 
-  return { sidebarDataList, tax, listTableMasterDataPage, emailVerificationOtpExpireTimeInMinute, dataRole };
+  const bankPaymentMethodData = [
+    {
+      name: 'BCA',
+      key: 'bca',
+    },
+    {
+      name: 'BRI',
+      key: 'bri',
+    },
+    {
+      name: 'BNI',
+      key: 'bni',
+    },
+    {
+      name: 'Mandiri',
+      key: 'mandiri',
+    },
+    {
+      name: 'Permata',
+      key: 'permata',
+    },
+    {
+      name: 'CIMB',
+      key: 'cimb',
+    },
+  ];
+
+  return {
+    sidebarDataList,
+    tax,
+    listTableMasterDataPage,
+    emailVerificationOtpExpireTimeInMinute,
+    dataRole,
+    bankPaymentMethodData,
+  };
 }

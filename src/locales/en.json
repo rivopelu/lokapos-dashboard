@@ -97,5 +97,6 @@
   "add_new_account": "add new account",
   "new_account": "new account",
   "role": "role",
-  "account_success_create": "account succces created"
+  "account_success_create": "account succces created",
+  "select_payment_method": "select payment method"
 }

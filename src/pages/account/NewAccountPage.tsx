@@ -1,12 +1,12 @@
+import LoadingButton from '@mui/lab/LoadingButton';
+import { Checkbox, FormControl, FormControlLabel, FormLabel, Radio, RadioGroup } from '@mui/material';
 import { t } from 'i18next';
+import { InputText } from '../../components/InputText';
+import { CardBody, MainCard } from '../../components/MainLogo';
 import { PageContainer } from '../../components/PageContainer';
 import { PageHeader } from '../../components/PageHeader';
-import { CardBody, MainCard } from '../../components/MainLogo';
-import { InputText } from '../../components/InputText';
-import { Button, Checkbox, FormControl, FormControlLabel, FormLabel, Radio, RadioGroup } from '@mui/material';
 import { useDataConstants } from '../../hooks/useDataConstants';
 import { useNewAccountPage } from './useNewAccountPage';
-import LoadingButton from '@mui/lab/LoadingButton';
 
 export function NewAccountPage() {
   const page = useNewAccountPage();
