@@ -95,5 +95,6 @@
   "account": "account",
   "account_page_description": "management your business employe and admin",
   "add_new_account": "add new account",
-  "new_account": "new account"
+  "new_account": "new account",
+  "role": "role"
 }

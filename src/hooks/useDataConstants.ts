@@ -1,5 +1,5 @@
 import { t } from 'i18next';
-import { MdHome, MdInventory, MdPayment } from 'react-icons/md';
+import { MdGroup, MdHome, MdInventory, MdPayment } from 'react-icons/md';
 import { ROUTES } from '../routes/routes';
 
 export function useDataConstants() {
@@ -24,7 +24,7 @@ export function useDataConstants() {
     {
       title: t('account'),
       path: ROUTES.ACCOUNT_PAGE(),
-      icon: MdPayment,
+      icon: MdGroup,
     },
   ];
 
