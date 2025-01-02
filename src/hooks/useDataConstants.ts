@@ -21,6 +21,11 @@ export function useDataConstants() {
       path: ROUTES.SUBSCRIPTION_PAGE(),
       icon: MdPayment,
     },
+    {
+      title: t('account'),
+      path: ROUTES.ACCOUNT_PAGE(),
+      icon: MdPayment,
+    },
   ];
 
   const listTableMasterDataPage = [

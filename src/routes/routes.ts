@@ -12,4 +12,6 @@ export const ROUTES = {
   PAYMENT_METHOD: (orderId: string | null) => `/payment/method${orderId ? 'packageId=' + orderId : ''}`,
   MENU_PAGE: () => `/master-data/menu`,
   NEW_MENU_PAGE: () => `/master-data/menu/new`,
+  ACCOUNT_PAGE: () => `/account/`,
+  NEW_ACCOUNT: () => `/account/new`,
 };

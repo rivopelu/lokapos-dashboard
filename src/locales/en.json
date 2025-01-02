@@ -91,5 +91,9 @@
   "insert_price": "insert price",
   "category": "category",
   "select_menu_category": "select menu category",
-  "menu_success_created": "menu success created"
+  "menu_success_created": "menu success created",
+  "account": "account",
+  "account_page_description": "management your business employe and admin",
+  "add_new_account": "add new account",
+  "new_account": "new account"
 }

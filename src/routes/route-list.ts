@@ -15,6 +15,8 @@ import { ProfilePage } from '../pages/profile/ProfilePage';
 import { PaymentMethodPage } from '../pages/payment/PaymentMethodPage';
 import { MenuPage } from '../pages/master-data/MenuPage';
 import { CreateNewMenuPage } from '../pages/master-data/CreateNewMenuPage';
+import { AccountPage } from '../pages/account/AccountPage';
+import { NewAccountPage } from '../pages/account/NewAccountPage';
 
 interface IRouteList {
   elements: () => Element;
@@ -86,6 +88,16 @@ export const routeList: IRouteList[] = [
   {
     elements: CreateNewMenuPage,
     route: ROUTES.NEW_MENU_PAGE(),
+    type: PAGE_TYPE_ENUM.PRIMARY,
+  },
+  {
+    elements: AccountPage,
+    route: ROUTES.ACCOUNT_PAGE(),
+    type: PAGE_TYPE_ENUM.PRIMARY,
+  },
+  {
+    elements: NewAccountPage,
+    route: ROUTES.NEW_ACCOUNT(),
     type: PAGE_TYPE_ENUM.PRIMARY,
   },
 ];
