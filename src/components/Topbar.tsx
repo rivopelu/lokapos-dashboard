@@ -65,9 +65,9 @@ export function TopBar() {
     >
       <PageContainer className={'h-full w-full'}>
         <div className={'grid grid-cols-3 h-full '}>
-          <div className={'h-full flex items-center -translate-x-5'}>
+          <Link to={'/'} className={'h-full flex items-center -translate-x-5'}>
             <BrandLogo />
-          </div>
+          </Link>
           <div className={'flex items-center justify-center'}></div>
           <div className={'flex items-center justify-end gap-8'}>
             <Button>

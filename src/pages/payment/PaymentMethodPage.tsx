@@ -1,14 +1,14 @@
+import { Button, CardActionArea, Checkbox, Divider, FormControlLabel } from '@mui/material';
 import { t } from 'i18next';
 import { CardBody, MainCard } from '../../components/MainLogo';
-import { useDataConstants } from '../../hooks/useDataConstants';
-import { CardActionArea, Divider } from '@mui/material';
-import { usePaymentMethodPage } from './usePaymentMethodPage';
 import { NumberFormatterHelper } from '../../helper/number-format-helper';
+import { useDataConstants } from '../../hooks/useDataConstants';
 import { ILabelValue } from '../../interfaces/feature-type-interface';
+import { usePaymentMethodPage } from './usePaymentMethodPage';
 
 export function PaymentMethodPage() {
-  const data = useDataConstants();
   const page = usePaymentMethodPage();
+  const data = useDataConstants();
   const numberFormatHelper = new NumberFormatterHelper();
 
   const dataListPayment: ILabelValue<string>[] = [
@@ -46,18 +46,41 @@ export function PaymentMethodPage() {
         </CardBody>
         <Divider />
         <CardBody>
-          <div className="grid  grid-cols-6 gap-4">
-            {data.bankPaymentMethodData.map((item, i) => (
-              <CardActionArea key={i}>
-                <MainCard className="px-10">
-                  <CardBody>
-                    <div className="flex items-center gap-4 justify-center">
-                      <img src={item.image} alt={item.name} className="h-10" />
-                    </div>
-                  </CardBody>
-                </MainCard>
-              </CardActionArea>
-            ))}
+          <div className="grid gap-6">
+            <div className="text-2xl font-semibold">{t('select_payment_method')}</div>
+
+            <div className="grid gap-3">
+              <div className=" text-slate-400">{t('bank_transfer')}</div>
+              <div className="grid  grid-cols-6 gap-4">
+                {data.bankPaymentMethodData.map((item, i) => (
+                  <CardActionArea key={i} onClick={() => page.setSelectedPaymentMethod(item.key)}>
+                    <MainCard
+                      className={`px-10 border ${page.selectedPaymentMethod === item.key ? 'border-primary-main bg-primary-main' : ''}`}
+                    >
+                      <CardBody>
+                        <div className="flex items-center gap-4 justify-center">
+                          <img src={item.image} alt={item.name} className="h-10" />
+                        </div>
+                      </CardBody>
+                    </MainCard>
+                  </CardActionArea>
+                ))}
+              </div>
+            </div>
+            <FormControlLabel
+              defaultChecked={false}
+              checked={page.checked}
+              onChange={(_, e) => page.setChecked(e)}
+              control={<Checkbox />}
+              label={t('terms_and_condition_payment_method')}
+            />
+            <Button
+              disabled={!(page.selectedPaymentMethod && page.checked)}
+              onClick={() => page.onSubmitPaymentMethod()}
+              variant="contained"
+            >
+              {t('pay_now')}
+            </Button>
           </div>
         </CardBody>
       </MainCard>

@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 
 export function MainCard(props: IProps) {
-  return <div className={`bg-white border ${props.className}`}>{props.children}</div>;
+  return <div className={` border ${props.className} bg-white`}>{props.children}</div>;
 }
 
 export function CardBody(props: IProps) {

@@ -98,5 +98,8 @@
   "new_account": "new account",
   "role": "role",
   "account_success_create": "account succces created",
-  "select_payment_method": "select payment method"
+  "select_payment_method": "select payment method",
+  "bank_transfer": "bank transfer",
+  "pay_now": "pay now",
+  "terms_and_condition_payment_method": "I have read and agree to the Terms and Conditions and Privacy Policy."
 }

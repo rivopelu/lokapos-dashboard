@@ -1,9 +1,11 @@
 import { t } from 'i18next';
 import { MdGroup, MdHome, MdInventory, MdPayment } from 'react-icons/md';
-import { ROUTES } from '../routes/routes';
-import { ILabelValue } from '../interfaces/feature-type-interface';
-import { ACCOUNT_ROLE_ENUM } from '../enums/account-role-enum';
 import { ASSETS } from '../constants/assets';
+import { ACCOUNT_ROLE_ENUM } from '../enums/account-role-enum';
+import { ILabelValue } from '../interfaces/feature-type-interface';
+import { ROUTES } from '../routes/routes';
+import { IListPaymentMethod } from '../models/IListPaymentMethod';
+import { PAYMENT_METHOD_TYPE_ENUM } from '../enums/payemnt-method-type-enum';
 
 export function useDataConstants() {
   const tax = 11;
@@ -55,35 +57,35 @@ export function useDataConstants() {
     },
   ];
 
-  const bankPaymentMethodData = [
+  const bankPaymentMethodData: IListPaymentMethod[] = [
     {
       name: 'BCA',
-      key: 'bca',
+      key: PAYMENT_METHOD_TYPE_ENUM.BANK_TRANSFER_BCA,
       image: ASSETS.BANK.BCA,
     },
     {
       name: 'BRI',
-      key: 'bri',
+      key: PAYMENT_METHOD_TYPE_ENUM.BANK_TRANSFER_BRI,
       image: ASSETS.BANK.BRI,
     },
     {
       name: 'BNI',
-      key: 'bni',
+      key: PAYMENT_METHOD_TYPE_ENUM.BANK_TRANSFER_BNI,
       image: ASSETS.BANK.BNI,
     },
     {
       name: 'Mandiri',
-      key: 'mandiri',
+      key: PAYMENT_METHOD_TYPE_ENUM.BANK_TRANSFER_MANDIRI,
       image: ASSETS.BANK.MANDIRI,
     },
     {
       name: 'Permata',
-      key: 'permata',
+      key: PAYMENT_METHOD_TYPE_ENUM.BANK_TRANSFER_PERMATA,
       image: ASSETS.BANK.PERMATA,
     },
     {
       name: 'CIMB',
-      key: 'cimb',
+      key: PAYMENT_METHOD_TYPE_ENUM.BANK_TRANSFER_CIMB,
       image: ASSETS.BANK.CIMB,
     },
   ];
