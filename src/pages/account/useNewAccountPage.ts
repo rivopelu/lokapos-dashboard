@@ -1,14 +1,14 @@
-import { useEffect, useState } from 'react';
-import { IReqCreateNewAccount } from '../../models/request/IReqCreateNewAccount';
 import { useFormik } from 'formik';
-import * as yup from 'yup';
 import { t } from 'i18next';
-import { HttpService } from '../../services/http.service';
-import ErrorService from '../../services/error.service';
-import { UiServices } from '../../services/ui.service';
-import { ENDPOINT } from '../../constants/endpoint';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import * as yup from 'yup';
+import { ENDPOINT } from '../../constants/endpoint';
+import { IReqCreateNewAccount } from '../../models/request/IReqCreateNewAccount';
 import { ROUTES } from '../../routes/routes';
+import ErrorService from '../../services/error.service';
+import { HttpService } from '../../services/http.service';
+import { UiServices } from '../../services/ui.service';
 export function useNewAccountPage() {
   const [checked, setChecked] = useState<boolean>(false);
   const [loadingSubmit, setLoadingSubmit] = useState<boolean>(false);

@@ -73,21 +73,21 @@ export function useDataConstants() {
       key: PAYMENT_METHOD_TYPE_ENUM.BANK_TRANSFER_BNI,
       image: ASSETS.BANK.BNI,
     },
-    {
-      name: 'Mandiri',
-      key: PAYMENT_METHOD_TYPE_ENUM.BANK_TRANSFER_MANDIRI,
-      image: ASSETS.BANK.MANDIRI,
-    },
-    {
-      name: 'Permata',
-      key: PAYMENT_METHOD_TYPE_ENUM.BANK_TRANSFER_PERMATA,
-      image: ASSETS.BANK.PERMATA,
-    },
-    {
-      name: 'CIMB',
-      key: PAYMENT_METHOD_TYPE_ENUM.BANK_TRANSFER_CIMB,
-      image: ASSETS.BANK.CIMB,
-    },
+    // {
+    //   name: 'Mandiri',
+    //   key: PAYMENT_METHOD_TYPE_ENUM.BANK_TRANSFER_MANDIRI,
+    //   image: ASSETS.BANK.MANDIRI,
+    // },
+    // {
+    //   name: 'Permata',
+    //   key: PAYMENT_METHOD_TYPE_ENUM.BANK_TRANSFER_PERMATA,
+    //   image: ASSETS.BANK.PERMATA,
+    // },
+    // {
+    //   name: 'CIMB',
+    //   key: PAYMENT_METHOD_TYPE_ENUM.BANK_TRANSFER_CIMB,
+    //   image: ASSETS.BANK.CIMB,
+    // },
   ];
 
   return {

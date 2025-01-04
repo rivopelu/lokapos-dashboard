@@ -46,20 +46,18 @@ export function usePaymentMethodPage() {
         method: selectedPaymentMethod,
         package_id: packageId,
       };
-      if (selectedPaymentMethod === PAYMENT_METHOD_TYPE_ENUM.BANK_TRANSFER_BCA) {
-        setLoadingSubmit(true);
-        httpService
-          .POST(ENDPOINT.V2_CREATE_PAYMENT_METHOD(), data)
-          .then((res: BaseResponse<string>) => {
-            navigate(ROUTES.CONFIRMATION_PAYMENT(res.data.response_data));
-            setLoadingSubmit(false);
-          })
-          .catch((e) => {
-            setLoadingSubmit(false);
+      setLoadingSubmit(true);
+      httpService
+        .POST(ENDPOINT.V2_CREATE_PAYMENT_METHOD(), data)
+        .then((res: BaseResponse<string>) => {
+          navigate(ROUTES.CONFIRMATION_PAYMENT(res.data.response_data));
+          setLoadingSubmit(false);
+        })
+        .catch((e) => {
+          setLoadingSubmit(false);
 
-            errorService.fetchApiError(e);
-          });
-      }
+          errorService.fetchApiError(e);
+        });
     }
   }
 

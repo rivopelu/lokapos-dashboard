@@ -1,11 +1,11 @@
-import { Button, CardActionArea, Checkbox, Divider, FormControlLabel } from '@mui/material';
+import LoadingButton from '@mui/lab/LoadingButton';
+import { CardActionArea, Checkbox, Divider, FormControlLabel } from '@mui/material';
 import { t } from 'i18next';
 import { CardBody, MainCard } from '../../components/MainLogo';
 import { NumberFormatterHelper } from '../../helper/number-format-helper';
 import { useDataConstants } from '../../hooks/useDataConstants';
 import { ILabelValue } from '../../interfaces/feature-type-interface';
 import { usePaymentMethodPage } from './usePaymentMethodPage';
-import LoadingButton from '@mui/lab/LoadingButton';
 
 export function PaymentMethodPage() {
   const page = usePaymentMethodPage();
@@ -52,7 +52,7 @@ export function PaymentMethodPage() {
 
             <div className="grid gap-3">
               <div className=" text-slate-400">{t('bank_transfer')}</div>
-              <div className="grid  grid-cols-6 gap-4">
+              <div className="grid  grid-cols-3 gap-4">
                 {data.bankPaymentMethodData.map((item, i) => (
                   <CardActionArea key={i} onClick={() => page.setSelectedPaymentMethod(item.key)}>
                     <MainCard
