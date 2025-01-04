@@ -1,13 +1,13 @@
-import { t } from 'i18next';
-import { CardBody, MainCard } from '../../components/MainLogo';
-import { useConfirmationPaymentPage } from './useConfirmationPaymentPage';
-import { NumberFormatterHelper } from '../../helper/number-format-helper';
-import { Divider, IconButton, Tooltip } from '@mui/material';
 import LoadingButton from '@mui/lab/LoadingButton';
+import { Divider, IconButton, Tooltip } from '@mui/material';
+import { t } from 'i18next';
 import { MdContentCopy } from 'react-icons/md';
-import { UtilsHelper } from '../../helper/utils-helper';
 import { Link } from 'react-router-dom';
+import { CardBody, MainCard } from '../../components/MainLogo';
+import { NumberFormatterHelper } from '../../helper/number-format-helper';
+import { UtilsHelper } from '../../helper/utils-helper';
 import { ROUTES } from '../../routes/routes';
+import { useConfirmationPaymentPage } from './useConfirmationPaymentPage';
 
 export function ConfirmationPaymentPage() {
   const page = useConfirmationPaymentPage();
@@ -41,22 +41,6 @@ export function ConfirmationPaymentPage() {
     }
   }
 
-  function checkButton() {
-    switch (page.data?.status) {
-      case 'PENDING':
-        return (
-          <LoadingButton size="large" fullWidth variant="contained">
-            {t('complete_payment')}
-          </LoadingButton>
-        );
-      case 'SUCCESS':
-        return (
-          <LoadingButton size="large" fullWidth variant="contained">
-            {t('complete_payment')}
-          </LoadingButton>
-        );
-    }
-  }
   return (
     <div className="flex items-center justify-center">
       <MainCard className="min-w-[600px]">
