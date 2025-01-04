@@ -10,6 +10,9 @@ import { HttpService } from '../../services/http.service';
 import ErrorService from '../../services/error.service';
 import { ENDPOINT } from '../../constants/endpoint';
 import { AxiosResponse } from 'axios';
+import { useNavigate } from 'react-router-dom';
+import { ROUTES } from '../../routes/routes';
+import { BaseResponse } from '../../models/response/IResModel';
 
 export function usePaymentMethodPage() {
   const [packageId] = useQueryState('packageId');
@@ -17,6 +20,7 @@ export function usePaymentMethodPage() {
   const [checked, setChecked] = useState<boolean>(false);
   const [selectedPaymentMethod, setSelectedPaymentMethod] = useState<PAYMENT_METHOD_TYPE_ENUM | undefined>();
 
+  const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
   const subscriptionAction = new SubscriptionActions();
@@ -45,8 +49,8 @@ export function usePaymentMethodPage() {
       if (selectedPaymentMethod === PAYMENT_METHOD_TYPE_ENUM.BANK_TRANSFER_BCA) {
         httpService
           .POST(ENDPOINT.V2_CREATE_PAYMENT_METHOD(), data)
-          .then((res: AxiosResponse<any>) => {
-            alert(res.data.response_data);
+          .then((res: BaseResponse<string>) => {
+            navigate(ROUTES.CONFIRMATION_PAYMENT(res.data.response_data));
           })
           .catch((e) => {
             errorService.fetchApiError(e);

@@ -17,6 +17,7 @@ import { MenuPage } from '../pages/master-data/MenuPage';
 import { CreateNewMenuPage } from '../pages/master-data/CreateNewMenuPage';
 import { AccountPage } from '../pages/account/AccountPage';
 import { NewAccountPage } from '../pages/account/NewAccountPage';
+import { ConfirmationPaymentPage } from '../pages/payment/ConfirmationPaymentPage';
 
 interface IRouteList {
   elements: () => Element;
@@ -78,6 +79,11 @@ export const routeList: IRouteList[] = [
   {
     elements: PaymentMethodPage,
     route: ROUTES.PAYMENT_METHOD(null),
+    type: PAGE_TYPE_ENUM.SECONDARY,
+  },
+  {
+    elements: ConfirmationPaymentPage,
+    route: ROUTES.CONFIRMATION_PAYMENT(),
     type: PAGE_TYPE_ENUM.SECONDARY,
   },
   {

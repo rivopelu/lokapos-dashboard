@@ -14,4 +14,5 @@ export const ROUTES = {
   NEW_MENU_PAGE: () => `/master-data/menu/new`,
   ACCOUNT_PAGE: () => `/account/`,
   NEW_ACCOUNT: () => `/account/new`,
+  CONFIRMATION_PAYMENT: (orderId?: string) => `/payment/confirmation${orderId ? '?orderId=' + orderId : ''}`,
 };
