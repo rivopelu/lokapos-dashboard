@@ -67,7 +67,7 @@ export function ConfirmationPaymentPage() {
               />
             </div>
             {page.data?.status === 'PENDING' && (
-              <div className="flex items-center gap-7 p-4 bg-slate-200">
+              <div className="flex items-center gap-7 w-full justify-between p-4 bg-slate-200">
                 <div>
                   <p className="text-slate-500">{t('your_virtual_account')}</p>
                   <p className="text-2xl">{page?.data?.payment_code}</p>
