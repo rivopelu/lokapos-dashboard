@@ -6,6 +6,9 @@ import { useSubscriptionPage } from './useSubscriptionPage';
 import { NumberFormatterHelper } from '../../helper/number-format-helper';
 import { IResListOrderSubscription } from '../../models/response/IResListOrderSubscription';
 import DateHelper from '../../helper/date-helper';
+import { Button } from '@mui/material';
+import { Link } from 'react-router-dom';
+import { ROUTES } from '../../routes/routes';
 
 export function SubscriptionPage() {
   const numberFormat = new NumberFormatterHelper();
@@ -47,6 +50,21 @@ export function SubscriptionPage() {
             return <div className="text-yellow-600 font-semibold">{e.status}</div>;
           case 'CANCELLED':
             return <div className="text-red-600 font-semibold">{e.status}</div>;
+        }
+      },
+    },
+    {
+      key: 'action',
+      headerTitle: t('action'),
+      layouts: (e: IResListOrderSubscription) => {
+        if (e.status === 'PENDING') {
+          return (
+            <Link to={ROUTES.CONFIRMATION_PAYMENT(e.id)}>
+              <Button>{t('pay_now')}</Button>
+            </Link>
+          );
+        } else {
+          return <></>;
         }
       },
     },
