@@ -15,6 +15,7 @@ import { HttpService } from '../../services/http.service';
 
 export function usePaymentMethodPage() {
   const [packageId] = useQueryState('packageId');
+  const [loadingSubmit, setLoadingSubmit] = useState<boolean>(false);
   const [packageData, setPackageData] = useState<IResSubscriptionPackage | undefined>();
   const [checked, setChecked] = useState<boolean>(false);
   const [selectedPaymentMethod, setSelectedPaymentMethod] = useState<PAYMENT_METHOD_TYPE_ENUM | undefined>();
@@ -46,17 +47,29 @@ export function usePaymentMethodPage() {
         package_id: packageId,
       };
       if (selectedPaymentMethod === PAYMENT_METHOD_TYPE_ENUM.BANK_TRANSFER_BCA) {
+        setLoadingSubmit(true);
         httpService
           .POST(ENDPOINT.V2_CREATE_PAYMENT_METHOD(), data)
           .then((res: BaseResponse<string>) => {
             navigate(ROUTES.CONFIRMATION_PAYMENT(res.data.response_data));
+            setLoadingSubmit(false);
           })
           .catch((e) => {
+            setLoadingSubmit(false);
+
             errorService.fetchApiError(e);
           });
       }
     }
   }
 
-  return { packageData, checked, setChecked, setSelectedPaymentMethod, selectedPaymentMethod, onSubmitPaymentMethod };
+  return {
+    packageData,
+    checked,
+    setChecked,
+    setSelectedPaymentMethod,
+    selectedPaymentMethod,
+    onSubmitPaymentMethod,
+    loadingSubmit,
+  };
 }

@@ -5,6 +5,7 @@ import { NumberFormatterHelper } from '../../helper/number-format-helper';
 import { useDataConstants } from '../../hooks/useDataConstants';
 import { ILabelValue } from '../../interfaces/feature-type-interface';
 import { usePaymentMethodPage } from './usePaymentMethodPage';
+import LoadingButton from '@mui/lab/LoadingButton';
 
 export function PaymentMethodPage() {
   const page = usePaymentMethodPage();
@@ -74,13 +75,14 @@ export function PaymentMethodPage() {
               control={<Checkbox />}
               label={t('terms_and_condition_payment_method')}
             />
-            <Button
+            <LoadingButton
+              loading={page.loadingSubmit}
               disabled={!(page.selectedPaymentMethod && page.checked)}
               onClick={() => page.onSubmitPaymentMethod()}
               variant="contained"
             >
               {t('pay_now')}
-            </Button>
+            </LoadingButton>
           </div>
         </CardBody>
       </MainCard>

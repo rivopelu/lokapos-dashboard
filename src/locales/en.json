@@ -101,5 +101,12 @@
   "select_payment_method": "select payment method",
   "bank_transfer": "bank transfer",
   "pay_now": "pay now",
-  "terms_and_condition_payment_method": "I have read and agree to the Terms and Conditions and Privacy Policy."
+  "terms_and_condition_payment_method": "I have read and agree to the Terms and Conditions and Privacy Policy.",
+  "payment_status": "payment status",
+  "payment_method": "payment method",
+  "complete_payment": "complete payment",
+  "your_virtual_account": "your virtual account",
+  "copy_virtual_account": "copy virtual account",
+  "copy_to_clipboard": "copy to clipboard",
+  "back_to_home": "back to home"
 }
