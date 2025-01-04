@@ -7,10 +7,12 @@ import {
 } from '../../models/response/IResModel';
 import { IResSubscriptionPackage } from '../../models/response/IResSubscriptionPackage';
 import { IResListOrderSubscription } from '../../models/response/IResListOrderSubscription';
+import { IResDetailSubscriptionOrder } from '../../models/response/IResDetailSubscriptionOrder';
 
 export interface ISubscriptionSlice {
   listSubscriptionPackage?: IPayloadData<IResSubscriptionPackage[]>;
   listOrderSubscription?: IPayloadDataPaginated<IResListOrderSubscription[]>;
+  detailSubscrptionOrder?: IPayloadData<IResDetailSubscriptionOrder>;
 }
 
 const initState: ISubscriptionSlice = {};
@@ -24,6 +26,9 @@ export const SubscriptionSlice = createSlice({
     },
     listOrderSubscription: (state: ISubscriptionSlice, action: BasePayloadPaginated<IResListOrderSubscription[]>) => {
       state.listOrderSubscription = action.payload;
+    },
+    detailSubscription: (state: ISubscriptionSlice, action: BasePayload<IResDetailSubscriptionOrder>) => {
+      state.detailSubscrptionOrder = action.payload;
     },
   },
 });

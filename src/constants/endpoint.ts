@@ -20,4 +20,5 @@ export const ENDPOINT = {
   LIST_ACCOUNT: () => `/account/v1/admin/account-list`,
   CREATE_ACCOUNT: () => `/account/v1/admin/create-account`,
   V2_CREATE_PAYMENT_METHOD: () => `/subscription/v2/order-subscription`,
+  GET_DETAIL_SUBSCRIPTION: (orderId: string) => `/subscription/v1/order-subscription/confirmation-payment/${orderId}`,
 };

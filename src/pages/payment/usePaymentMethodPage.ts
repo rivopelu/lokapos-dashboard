@@ -1,18 +1,17 @@
-import { useEffect, useState } from 'react';
-import { SubscriptionActions } from '../../redux/actions/subscription.actions';
-import { useAppDispatch, useAppSelector } from '../../redux/store';
-import { ISubscriptionSlice } from '../../redux/reducers/subscription.reducers';
-import { IResSubscriptionPackage } from '../../models/response/IResSubscriptionPackage';
 import { useQueryState } from 'nuqs';
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { ENDPOINT } from '../../constants/endpoint';
 import { PAYMENT_METHOD_TYPE_ENUM } from '../../enums/payemnt-method-type-enum';
 import { IReqPaymentMethod } from '../../models/request/IReqPaymentMethod';
-import { HttpService } from '../../services/http.service';
-import ErrorService from '../../services/error.service';
-import { ENDPOINT } from '../../constants/endpoint';
-import { AxiosResponse } from 'axios';
-import { useNavigate } from 'react-router-dom';
-import { ROUTES } from '../../routes/routes';
 import { BaseResponse } from '../../models/response/IResModel';
+import { IResSubscriptionPackage } from '../../models/response/IResSubscriptionPackage';
+import { SubscriptionActions } from '../../redux/actions/subscription.actions';
+import { ISubscriptionSlice } from '../../redux/reducers/subscription.reducers';
+import { useAppDispatch, useAppSelector } from '../../redux/store';
+import { ROUTES } from '../../routes/routes';
+import ErrorService from '../../services/error.service';
+import { HttpService } from '../../services/http.service';
 
 export function usePaymentMethodPage() {
   const [packageId] = useQueryState('packageId');

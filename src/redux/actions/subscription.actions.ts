@@ -5,9 +5,26 @@ import { ENDPOINT } from '../../constants/endpoint';
 import { BaseResponse, BaseResponsePaginated } from '../../models/response/IResModel';
 import { IResSubscriptionPackage } from '../../models/response/IResSubscriptionPackage';
 import { IResListOrderSubscription } from '../../models/response/IResListOrderSubscription';
+import { endOfDay } from 'date-fns';
+import { IResDetailSubscriptionOrder } from '../../models/response/IResDetailSubscriptionOrder';
 
 export class SubscriptionActions extends BaseActions {
   private actions = SubscriptionSlice.actions;
+
+  getDetailSubscriptionOrder(orderId: string) {
+    return async (dispatch: Dispatch) => {
+      dispatch(this.actions.detailSubscription({ loading: true, data: undefined }));
+      await this.httpService
+        .GET(ENDPOINT.GET_DETAIL_SUBSCRIPTION(orderId))
+        .then((res: BaseResponse<IResDetailSubscriptionOrder>) => {
+          dispatch(this.actions.detailSubscription({ loading: false, data: res.data.response_data }));
+        })
+        .catch((e) => {
+          this.errorService.fetchApiError(e);
+          dispatch(this.actions.detailSubscription({ loading: false, data: undefined }));
+        });
+    };
+  }
 
   getOrderSubscription() {
     return async (dispatch: Dispatch) => {
