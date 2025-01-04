@@ -6,6 +6,10 @@ import { IResSubscriptionPackage } from '../../models/response/IResSubscriptionP
 import { useQueryState } from 'nuqs';
 import { PAYMENT_METHOD_TYPE_ENUM } from '../../enums/payemnt-method-type-enum';
 import { IReqPaymentMethod } from '../../models/request/IReqPaymentMethod';
+import { HttpService } from '../../services/http.service';
+import ErrorService from '../../services/error.service';
+import { ENDPOINT } from '../../constants/endpoint';
+import { AxiosResponse } from 'axios';
 
 export function usePaymentMethodPage() {
   const [packageId] = useQueryState('packageId');
@@ -16,6 +20,9 @@ export function usePaymentMethodPage() {
   const dispatch = useAppDispatch();
 
   const subscriptionAction = new SubscriptionActions();
+  const httpService = new HttpService();
+  const errorService = new ErrorService();
+
   const Subscription: ISubscriptionSlice = useAppSelector((state) => state.Subscription);
 
   useEffect(() => {
@@ -35,7 +42,16 @@ export function usePaymentMethodPage() {
         method: selectedPaymentMethod,
         package_id: packageId,
       };
-      console.log(data);
+      if (selectedPaymentMethod === PAYMENT_METHOD_TYPE_ENUM.BANK_TRANSFER_BCA) {
+        httpService
+          .POST(ENDPOINT.V2_CREATE_PAYMENT_METHOD(), data)
+          .then((res: AxiosResponse<any>) => {
+            alert(res.data.response_data);
+          })
+          .catch((e) => {
+            errorService.fetchApiError(e);
+          });
+      }
     }
   }
 
