@@ -6,9 +6,25 @@ import { BaseResponse } from '../../models/response/IResModel';
 import { IResListMerchant } from '../../models/response/IResListMerchant';
 import { IResListCategories } from '../../models/response/IResListCategories';
 import { IResListMenu } from '../../models/response/IResListMenu';
+import { IResDetailMenu } from '../../models/response/IResDetailMenu.ts';
 
 export class MasterDataAction extends BaseActions {
   private action = masterDataSlice.actions;
+
+  getDetailMenu(id: string) {
+    return async (dispatch: Dispatch) => {
+      dispatch(this.action.detailMenu({ loading: true, data: undefined }));
+      await this.httpService
+        .GET(ENDPOINT.DETAIL_MENU(id))
+        .then((res: BaseResponse<IResDetailMenu>) => {
+          dispatch(this.action.detailMenu({ loading: false, data: res.data.response_data }));
+        })
+        .catch((e) => {
+          this.errorService.fetchApiError(e);
+          dispatch(this.action.detailMenu({ loading: false, data: undefined }));
+        });
+    };
+  }
 
   getListMerchant() {
     return async (dispatch: Dispatch) => {

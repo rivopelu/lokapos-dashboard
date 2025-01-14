@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FormLabel, InputAdornment, OutlinedInputProps, TextField } from '@mui/material';
 import { HTMLInputTypeAttribute, ReactNode } from 'react';
 import { STYLE_VARIABLE } from '../constants/style-variable';
@@ -9,6 +9,10 @@ function formatRupiah(value: number): string {
 
 export function InputRupiah(props: IProps) {
   const [displayValue, setDisplayValue] = useState<string>(formatRupiah(Number(props.value) || 0));
+
+  useEffect(() => {
+    setDisplayValue(formatRupiah(Number(props.value) || 0));
+  }, [props.value]);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const numericValue = event.target.value.replace(/[^0-9]/g, '');

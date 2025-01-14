@@ -1,8 +1,8 @@
 import { t } from 'i18next';
 import { PageContainer } from '../../components/PageContainer';
 import { PageHeader } from '../../components/PageHeader';
-import { Button } from '@mui/material';
-import { MdAdd } from 'react-icons/md';
+import { Button, IconButton } from '@mui/material';
+import { MdAdd, MdEdit } from 'react-icons/md';
 import { ITableColumnData, MainTable } from '../../components/MainTable';
 import { IResListMenu } from '../../models/response/IResListMenu';
 import { useMenuPage } from './useMenuPage';
@@ -50,6 +50,17 @@ export function MenuPage() {
           </div>
         );
       },
+    },
+    {
+      key: 'action',
+      headerTitle: t('action'),
+      layouts: (e: IResListMenu) => (
+        <Link to={ROUTES.EDIT_MENU(e.id)}>
+          <IconButton >
+            <MdEdit />
+          </IconButton>
+        </Link>
+      ),
     },
   ];
 

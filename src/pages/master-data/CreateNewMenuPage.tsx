@@ -17,7 +17,7 @@ export function CreateNewMenuPage() {
 
   return (
     <PageContainer className="my-10 grid gap-8">
-      <PageHeader title={t('new_serving_menu')} />
+      <PageHeader title={t(page.id ?'edit_serving_menu':'new_serving_menu')} />
       <MainCard>
         <CardBody>
           <h1 className="italic">{t('insert_your_menu_information')}</h1>
@@ -52,8 +52,8 @@ export function CreateNewMenuPage() {
           />
           <InputRupiah
             name="price"
-            value={formik.values.price}
             label={t('price')}
+            value={formik.values.price}
             placeholder={t('insert_price')}
             onChange={(e) => formik.setFieldValue('price', e.target.value)}
             onBlur={formik.handleBlur}

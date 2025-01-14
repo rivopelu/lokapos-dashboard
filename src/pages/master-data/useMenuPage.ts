@@ -14,7 +14,7 @@ export function useMenuPage() {
   const [listMenu, setListMenu] = useState<IResListMenu[]>([]);
 
   useEffect(() => {
-    dispatch(masterDataAction.getListMenu());
+    dispatch(masterDataAction.getListMenu()).then();
   }, []);
 
   useEffect(() => {

@@ -2,7 +2,6 @@ import { jsx } from '@emotion/react';
 import { PAGE_TYPE_ENUM } from '../enums/page-type-enum';
 import { SignInPage } from '../pages/auth/SIgnInPage';
 import { ROUTES } from './routes';
-import Element = jsx.JSX.Element;
 import { HomePage } from '../pages/HomePage';
 import { SignUpPage } from '../pages/auth/SignUp';
 import { MasterDataPage } from '../pages/master-data/MasterDataPage';
@@ -18,6 +17,7 @@ import { CreateNewMenuPage } from '../pages/master-data/CreateNewMenuPage';
 import { AccountPage } from '../pages/account/AccountPage';
 import { NewAccountPage } from '../pages/account/NewAccountPage';
 import { ConfirmationPaymentPage } from '../pages/payment/ConfirmationPaymentPage';
+import Element = jsx.JSX.Element;
 
 interface IRouteList {
   elements: () => Element;
@@ -106,4 +106,9 @@ export const routeList: IRouteList[] = [
     route: ROUTES.NEW_ACCOUNT(),
     type: PAGE_TYPE_ENUM.PRIMARY,
   },
+  {
+    elements : CreateNewMenuPage,
+    route : ROUTES.EDIT_MENU(":id"),
+    type : PAGE_TYPE_ENUM.PRIMARY
+  }
 ];

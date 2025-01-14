@@ -11,13 +11,17 @@ import ErrorService from '../../services/error.service';
 import { HttpService } from '../../services/http.service';
 import { ENDPOINT } from '../../constants/endpoint';
 import { UiServices } from '../../services/ui.service';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { ROUTES } from '../../routes/routes';
+import { IResDetailMenu } from '../../models/response/IResDetailMenu.ts';
 
 export function useCreateNewMenuPage() {
   const [checked, setChecked] = useState<boolean>(false);
   const [listCategories, setListCategories] = useState<ILabelValue<string>[]>([]);
   const [loadingSubmit, setLoadingSubmit] = useState<boolean>(false);
+  const [dataDetail, setDataDetail] = useState<IResDetailMenu | undefined>(undefined);
+
+  const id = useParams()?.id;
 
   const MasterData: IMasterDataSlice = useAppSelector((state) => state.MasterData);
 
@@ -36,6 +40,31 @@ export function useCreateNewMenuPage() {
     name: '',
     price: 0,
   };
+
+  useEffect(() => {
+    if (dataDetail) {
+      const data: IReqCreateNewMenu = {
+        category_id: dataDetail.category_id,
+        description: dataDetail.description,
+        image_url: dataDetail.image,
+        name: dataDetail.name,
+        price: dataDetail.price,
+      };
+      formik.setValues(data);
+    } else {
+      formik.setValues(initValue);
+    }
+  }, [dataDetail]);
+
+  useEffect(() => {
+    if (id) {
+      dispatch(masterDataAction.getDetailMenu(id)).then();
+    }
+  }, [id]);
+
+  useEffect(() => {
+    setDataDetail(MasterData?.detailMenu?.data);
+  }, [MasterData?.detailMenu?.data]);
 
   const validationSchema = yup.object().shape({
     category_id: yup.string().required(t('validation.required', { name: t('category_id') })),
@@ -74,11 +103,10 @@ export function useCreateNewMenuPage() {
   function onSubmit(data: IReqCreateNewMenu) {
     if (checked) {
       setLoadingSubmit(true);
-      httpService
-        .POST(ENDPOINT.CREATE_NEW_MENU(), data)
+      (id ? httpService.PUT(ENDPOINT.EDIT_MENU(id), data) : httpService.POST(ENDPOINT.CREATE_NEW_MENU(), data))
         .then(() => {
           setLoadingSubmit(false);
-          uiService.handleSnackbarSuccess(t('menu_success_created'));
+          uiService.handleSnackbarSuccess(t(id ? 'menu_success_updated':'menu_success_created'));
           navigate(ROUTES.MENU_PAGE());
         })
         .catch((e) => {
@@ -108,5 +136,5 @@ export function useCreateNewMenuPage() {
     }
   }, [MasterData?.listCategories?.data]);
 
-  return { formik, checked, setChecked, checkValidButton, listCategories, loadingSubmit };
+  return { formik, checked, setChecked, checkValidButton, listCategories, loadingSubmit, dataDetail, id };
 }
