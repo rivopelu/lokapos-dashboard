@@ -106,7 +106,7 @@ export function useCreateNewMenuPage() {
       (id ? httpService.PUT(ENDPOINT.EDIT_MENU(id), data) : httpService.POST(ENDPOINT.CREATE_NEW_MENU(), data))
         .then(() => {
           setLoadingSubmit(false);
-          uiService.handleSnackbarSuccess(t(id ? 'menu_success_updated':'menu_success_created'));
+          uiService.handleSnackbarSuccess(t(id ? 'menu_success_updated' : 'menu_success_created'));
           navigate(ROUTES.MENU_PAGE());
         })
         .catch((e) => {
@@ -120,7 +120,8 @@ export function useCreateNewMenuPage() {
   }
 
   useEffect(() => {
-    dispatch(masterDataAction.getListCategories());
+    dispatch(masterDataAction.getListCategories()).then();
+    formik.setValues(initValue);
   }, []);
 
   useEffect(() => {
