@@ -1,5 +1,5 @@
 import { t } from 'i18next';
-import { MdGroup, MdHome, MdInventory, MdPayment } from 'react-icons/md';
+import { MdCalendarMonth, MdGroup, MdHome, MdInventory, MdPayment } from 'react-icons/md';
 import { ASSETS } from '../constants/assets';
 import { ACCOUNT_ROLE_ENUM } from '../enums/account-role-enum';
 import { ILabelValue } from '../interfaces/feature-type-interface';
@@ -30,6 +30,11 @@ export function useDataConstants() {
       title: t('account'),
       path: ROUTES.ACCOUNT_PAGE(),
       icon: MdGroup,
+    },
+    {
+      title: t('shift'),
+      path: ROUTES.SHIFT_PAGE(),
+      icon: MdCalendarMonth,
     },
   ];
 

@@ -22,5 +22,6 @@ export const ENDPOINT = {
   V2_CREATE_PAYMENT_METHOD: () => `/subscription/v2/order-subscription`,
   GET_DETAIL_SUBSCRIPTION: (orderId: string) => `/subscription/v1/order-subscription/confirmation-payment/${orderId}`,
   DETAIL_MENU : (id : string) => `/master-data/v1/menu/detail/${id}`,
-  EDIT_MENU : (id : string) => `/master-data/v1/menu/edit/${id}`
+  EDIT_MENU : (id : string) => `/master-data/v1/menu/edit/${id}`,
+  GET_LIST_SHIFT :() => `/shift/v1/admin/list`
 };

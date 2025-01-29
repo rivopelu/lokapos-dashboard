@@ -9,6 +9,8 @@ export function useAccountPage() {
 
   const dispatch = useAppDispatch();
   const Account: IAccountSlice = useAppSelector((state) => state.Account);
+  const loading = Account?.listAccont?.loading;
+
 
   const accountAction = new AccountActions();
 
@@ -21,8 +23,8 @@ export function useAccountPage() {
   }, [Account?.listAccont?.data]);
 
   function fetchData() {
-    dispatch(accountAction.getListAccount());
+    dispatch(accountAction.getListAccount()).then();
   }
 
-  return { dataList };
+  return { dataList, loading };
 }

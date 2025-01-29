@@ -1,15 +1,22 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { IResListMerchant } from '../../models/response/IResListMerchant';
-import { BasePayload, IPayloadData } from '../../models/response/IResModel';
+import {
+  BasePayload,
+  BasePayloadPaginated,
+  IPayloadData,
+  IPayloadDataPaginated,
+} from '../../models/response/IResModel';
 import { IResListCategories } from '../../models/response/IResListCategories';
 import { IResListMenu } from '../../models/response/IResListMenu';
 import { IResDetailMenu } from '../../models/response/IResDetailMenu.ts';
+import { IResListShift } from '../../models/response/IResListShift.ts';
 
 export interface IMasterDataSlice {
   listMerchant?: IPayloadData<IResListMerchant[]>;
   listCategories?: IPayloadData<IResListCategories[]>;
   listMenu?: IPayloadData<IResListMenu[]>;
   detailMenu?: IPayloadData<IResDetailMenu>;
+  listShift?: IPayloadDataPaginated<IResListShift[]>;
 }
 
 const initState: IMasterDataSlice = {};
@@ -29,6 +36,9 @@ export const masterDataSlice = createSlice({
     },
     detailMenu: (state: IMasterDataSlice, action: BasePayload<IResDetailMenu>) => {
       state.detailMenu = action.payload;
+    },
+    listShift: (state: IMasterDataSlice, action: BasePayloadPaginated<IResListShift[]>) => {
+      state.listShift = action.payload;
     },
   },
 });

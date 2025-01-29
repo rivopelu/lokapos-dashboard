@@ -18,6 +18,7 @@ import { AccountPage } from '../pages/account/AccountPage';
 import { NewAccountPage } from '../pages/account/NewAccountPage';
 import { ConfirmationPaymentPage } from '../pages/payment/ConfirmationPaymentPage';
 import Element = jsx.JSX.Element;
+import { ShiftPage } from '../pages/shift/ShiftPage.tsx';
 
 interface IRouteList {
   elements: () => Element;
@@ -109,6 +110,11 @@ export const routeList: IRouteList[] = [
   {
     elements : CreateNewMenuPage,
     route : ROUTES.EDIT_MENU(":id"),
+    type : PAGE_TYPE_ENUM.PRIMARY
+  },
+  {
+    elements : ShiftPage,
+    route : ROUTES.SHIFT_PAGE(),
     type : PAGE_TYPE_ENUM.PRIMARY
   }
 ];

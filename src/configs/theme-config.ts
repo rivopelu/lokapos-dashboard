@@ -99,6 +99,25 @@ const themeConfig = createTheme({
         padding: 0,
       },
     },
+
+    MuiAccordionSummary: {
+      styleOverrides: {
+
+        root: {
+          borderRadius : 0,
+          borderBottomStyle : "solid",
+          borderBottomWidth: 1,
+          borderBottomColor: "#e1e1e1",
+        },
+      },
+    },
+    MuiAccordion: {
+      styleOverrides: {
+        root: {
+          boxShadow: 'none',
+        },
+      },
+    },
     MuiMenuItem: {
       styleOverrides: {
         root: {

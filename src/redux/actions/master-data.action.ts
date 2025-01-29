@@ -2,11 +2,12 @@ import { Dispatch } from '@reduxjs/toolkit';
 import BaseActions from '../base-actions';
 import { masterDataSlice } from '../reducers/master-data.reducers';
 import { ENDPOINT } from '../../constants/endpoint';
-import { BaseResponse } from '../../models/response/IResModel';
+import { BaseResponse, BaseResponsePaginated } from '../../models/response/IResModel';
 import { IResListMerchant } from '../../models/response/IResListMerchant';
 import { IResListCategories } from '../../models/response/IResListCategories';
 import { IResListMenu } from '../../models/response/IResListMenu';
 import { IResDetailMenu } from '../../models/response/IResDetailMenu.ts';
+import { IResListShift } from '../../models/response/IResListShift.ts';
 
 export class MasterDataAction extends BaseActions {
   private action = masterDataSlice.actions;
@@ -67,6 +68,21 @@ export class MasterDataAction extends BaseActions {
         .catch((e) => {
           this.errorService.fetchApiError(e);
           dispatch(this.action.listMenu({ loading: false, data: undefined }));
+        });
+    };
+  }
+
+  getListShift() {
+    return async (dispatch: Dispatch) => {
+      dispatch(this.action.listShift({ loading: true, data: undefined }));
+      await this.httpService
+        .GET(ENDPOINT.GET_LIST_SHIFT())
+        .then((res: BaseResponsePaginated<IResListShift[]>) => {
+          dispatch(this.action.listShift({ loading: false, data: res.data.response_data }));
+        })
+        .catch((e) => {
+          this.errorService.fetchApiError(e);
+          dispatch(this.action.listShift({ loading: false, data: undefined }));
         });
     };
   }

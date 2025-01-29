@@ -54,7 +54,7 @@ export function AccountPage() {
           </Button>
         </Link>
       </div>
-      <MainTable data={page.dataList} columns={tableColumn} />
+      <MainTable loading={page.loading} data={page.dataList} columns={tableColumn} />
     </PageContainer>
   );
 }
