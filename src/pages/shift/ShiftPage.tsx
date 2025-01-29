@@ -8,7 +8,6 @@ import { LabelValueText } from '../../components/LabelValueText.tsx';
 
 export function ShiftPage() {
   const page = useShiftPage();
-
   const dateHelper = new DateHelper();
 
   return (
