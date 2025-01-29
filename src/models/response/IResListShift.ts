@@ -3,6 +3,7 @@ export interface IResListShift {
   start_date: number;
   end_date: number;
   is_active: boolean;
+  merchant_name : string;
   account : IResListAccountShift[]
 }
 

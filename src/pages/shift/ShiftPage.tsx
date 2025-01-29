@@ -19,7 +19,7 @@ export function ShiftPage() {
             <div key={i}>
               <Accordion>
                 <AccordionSummary expandIcon={<MdExpandMore />}>
-                  <div className={'grid grid-cols-3 gap-16'}>
+                  <div className={'grid grid-cols-3 gap-16  w-full'}>
                     <div className={'flex gap-4 items-center'}>
                       <div className={`h-3 w-3 ${item.is_active ? 'bg-green-600' : 'bg-red-600'} rounded-full`}></div>
                       <LabelValueText
@@ -30,6 +30,10 @@ export function ShiftPage() {
                     <LabelValueText
                       label={t('end_date')}
                       value={item.end_date ? dateHelper.toFormatDate(new Date(item.start_date), 'dd LLLL, yyyy - HH:mm') : '-'}
+                    />
+                    <LabelValueText
+                      label={t('merchant_name')}
+                      value={item.merchant_name}
                     />
                   </div>
                 </AccordionSummary>
