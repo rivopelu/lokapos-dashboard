@@ -15,5 +15,6 @@ export const ENV = {
     MESSAGE_SENDER_ID: import.meta.env.VITE_APP_FIREBASE_MESSAGING_SENDER_ID,
     APP_ID: import.meta.env.VITE_APP_FIREBASE_APP_ID,
     MEASUREMENT_ID: import.meta.env.VITE_APP_FIREBASE_MEASUREMENT_ID,
+    VAPID_KEY: import.meta.env.VITE_APP_FIREBASE_VAPID_KEY,
   },
 };

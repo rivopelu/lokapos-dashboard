@@ -28,12 +28,13 @@ export function ShiftPage() {
                     </div>
                     <LabelValueText
                       label={t('end_date')}
-                      value={item.end_date ? dateHelper.toFormatDate(new Date(item.start_date), 'dd LLLL, yyyy - HH:mm') : '-'}
+                      value={
+                        item.end_date
+                          ? dateHelper.toFormatDate(new Date(item.start_date), 'dd LLLL, yyyy - HH:mm')
+                          : '-'
+                      }
                     />
-                    <LabelValueText
-                      label={t('merchant_name')}
-                      value={item.merchant_name}
-                    />
+                    <LabelValueText label={t('merchant_name')} value={item.merchant_name} />
                   </div>
                 </AccordionSummary>
                 <AccordionDetails>
@@ -43,7 +44,7 @@ export function ShiftPage() {
                         <Avatar src={account.avatar} />
                         <div>
                           <div>{account.name}</div>
-                          <div className={"text-slate-400"}>{account.email}</div>
+                          <div className={'text-slate-400'}>{account.email}</div>
                         </div>
                       </div>
                     ))}
