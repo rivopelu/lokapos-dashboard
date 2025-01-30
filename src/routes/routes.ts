@@ -1,3 +1,5 @@
+import { convertObjToQueryParam, defaultPaginationType } from '../helper/pagination-helper.ts';
+
 export const ROUTES = {
   HOME: () => `/`,
   VERIFY_EMAIL: () => `/verify-email`,
@@ -14,7 +16,7 @@ export const ROUTES = {
   NEW_MENU_PAGE: () => `/master-data/menu/new`,
   ACCOUNT_PAGE: () => `/account/`,
   NEW_ACCOUNT: () => `/account/new`,
-  EDIT_MENU : (id : string) => `/master-data/menu/edit/${id}`,
+  EDIT_MENU: (id: string) => `/master-data/menu/edit/${id}`,
   CONFIRMATION_PAYMENT: (orderId?: string) => `/payment/confirmation${orderId ? '?orderId=' + orderId : ''}`,
-  SHIFT_PAGE :() => "/shift"
+  SHIFT_PAGE: (param?: defaultPaginationType) => '/shift' + (param ? convertObjToQueryParam(param)  : ''),
 };

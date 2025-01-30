@@ -12,3 +12,12 @@ export interface IAreaData {
   districtId?: number;
   subDistrictId?: number;
 }
+
+
+export interface defaultPaginationType {
+  page: number
+  size: number
+  type?: string
+  sub_type?: string
+  query?: string
+}

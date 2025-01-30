@@ -72,13 +72,19 @@ export class MasterDataAction extends BaseActions {
     };
   }
 
-  getListShift() {
+  getListShift(param : string) {
     return async (dispatch: Dispatch) => {
       dispatch(this.action.listShift({ loading: true, data: undefined }));
       await this.httpService
-        .GET(ENDPOINT.GET_LIST_SHIFT())
+        .GET(ENDPOINT.GET_LIST_SHIFT() + (param || ""))
         .then((res: BaseResponsePaginated<IResListShift[]>) => {
-          dispatch(this.action.listShift({ loading: false, data: res.data.response_data }));
+          dispatch(
+            this.action.listShift({
+              loading: false,
+              data: res.data.response_data,
+              paginated_data: res.data.paginated_data,
+            }),
+          );
         })
         .catch((e) => {
           this.errorService.fetchApiError(e);

@@ -6,6 +6,7 @@ import { ILabelValue } from '../interfaces/feature-type-interface';
 import { ROUTES } from '../routes/routes';
 import { IListPaymentMethod } from '../models/IListPaymentMethod';
 import { PAYMENT_METHOD_TYPE_ENUM } from '../enums/payemnt-method-type-enum';
+import { defaultPaginationObj } from '../helper/pagination-helper.ts';
 
 export function useDataConstants() {
   const tax = 11;
@@ -33,7 +34,7 @@ export function useDataConstants() {
     },
     {
       title: t('shift'),
-      path: ROUTES.SHIFT_PAGE(),
+      path: ROUTES.SHIFT_PAGE(defaultPaginationObj),
       icon: MdCalendarMonth,
     },
   ];
