@@ -48,7 +48,7 @@ export function ShiftPage() {
                 <div key={i}>
                   <Accordion>
                     <AccordionSummary expandIcon={<MdExpandMore />}>
-                      <div className={'grid grid-cols-3 gap-16  w-full'}>
+                      <div className={'grid lg:grid-cols-3 md:1 gap-16  w-full'}>
                         <div className={'flex gap-4 items-center'}>
                           <div
                             className={`h-3 w-3 ${item.is_active ? 'bg-green-600' : 'bg-red-600'} rounded-full`}

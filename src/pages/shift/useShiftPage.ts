@@ -28,7 +28,6 @@ export function useShiftPage() {
   }, [MasterData.listShift]);
 
   useEffect(() => {
-    console.log(location.search);
     fetchData(location.search);
   }, [location.search]);
 
