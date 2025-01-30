@@ -4,29 +4,38 @@ import {
   onMessage as firebaseOnMessage,
 } from 'firebase/messaging';
 import { firebaseApp } from '../configs/firebase.config.ts';
-import { Dispatch, SetStateAction } from 'react';
 import { MessagePayload, NotificationPayload } from '@firebase/messaging';
+import BaseActions from '../redux/base-actions.ts';
+import { ENDPOINT } from '../constants/endpoint.ts';
+import AuthServices from './auth.service.ts';
 
-export class NotificationService {
-  async getToken(setTokenFound: Dispatch<SetStateAction<boolean>>) {
+export class NotificationService extends BaseActions {
+  private authService = new AuthServices();
+
+  async getToken() {
     const token = localStorage.getItem('fcm-token');
     if (!token) {
       return getFirebaseToken(this.getMessaging())
         .then((currentToken) => {
           localStorage.setItem('fcm-token', currentToken);
-
           if (currentToken) {
+            if (this.authService.authCheck()) {
+              console.log('TOKEN SUCCESS SAVED');
+              this.saveToken(currentToken);
+            }
             console.log('current token for client: ', currentToken);
           } else {
             console.log('No registration token available. Request permission to generate one.');
-            setTokenFound(false);
           }
         })
         .catch((err) => {
           console.log('An error occurred while retrieving token. ', err);
         });
     } else {
-      setTokenFound(true);
+      if (this.authService.authCheck()) {
+        console.info('FCM TOKEN SUCCESS SAVED');
+        this.saveToken(token);
+      }
       return token;
     }
   }
@@ -54,5 +63,9 @@ export class NotificationService {
         }
       });
     });
+  }
+
+  private saveToken(token: string) {
+    this.httpService.PATCH(ENDPOINT.SAVE_FCM_TOKEN(token)).then();
   }
 }

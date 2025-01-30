@@ -25,4 +25,5 @@ export const ENDPOINT = {
   EDIT_MENU: (id: string) => `/master-data/v1/menu/edit/${id}`,
   GET_LIST_SHIFT: () => `/shift/v1/admin/list`,
   UPLOAD: () => `/utils/v1/upload`,
+  SAVE_FCM_TOKEN : (token : string) => `/account/v1/save-fcm-token?token=${token}`
 };

@@ -2,10 +2,25 @@ import { Route, Routes } from 'react-router-dom';
 import { BasePage } from './components/BasePage';
 import { routeList } from './routes/route-list';
 import { ToastContainer } from 'react-toastify';
+import { toast, Toaster } from 'react-hot-toast';
+import { STYLE_VARIABLE } from './constants/style-variable.tsx';
+import { NotificationService } from './services/notification.service.ts';
+import { useEffect } from 'react';
+import { NotificationToastUi } from './components/NotificationToastUi.tsx';
 
 export default function App() {
+  const notificationService = new NotificationService();
+
+  useEffect(() => {
+    notificationService.onMessage().then((res) => {
+      console.log(res);
+      toast.custom((e) => <NotificationToastUi message={res} options={e} />);
+    });
+  }, []);
+
   return (
     <div className="bg-slate-200">
+      <Toaster position={'top-right'} containerStyle={{ top: STYLE_VARIABLE.SIZE.TOP_BAR_HEIGHT + 12 }} />
       <ToastContainer
         position="bottom-right"
         autoClose={3000}
