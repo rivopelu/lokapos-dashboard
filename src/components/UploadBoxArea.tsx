@@ -8,7 +8,7 @@ import {
   Modal,
   Slider,
 } from '@mui/material';
-import axios, { AxiosResponse } from 'axios';
+import { AxiosResponse } from 'axios';
 import { t } from 'i18next';
 import { useCallback, useRef, useState } from 'react';
 import Cropper, { Area, Point } from 'react-easy-crop';
@@ -16,7 +16,7 @@ import { MdClose, MdUploadFile } from 'react-icons/md';
 import { UiServices } from '../services/ui.service';
 import ErrorService from '../services/error.service';
 import getCroppedImg from '../helper/cropper-helper';
-import { ENV } from '../constants/ENV.ts';
+import { HttpService } from '../services/http.service.ts';
 
 export function UploadBox(props: IProps) {
   const [aspectSet] = useState<number>(props.ratio || 1);
@@ -28,6 +28,7 @@ export function UploadBox(props: IProps) {
   const uiService = new UiServices();
   const inputRef: any = useRef();
   const errorService = new ErrorService();
+  const httpService = new HttpService();
   const [loadingUpload, setLoadingUpload] = useState<boolean>(false);
 
   const uploadProcess = async (files: Blob) => {
@@ -37,12 +38,8 @@ export function UploadBox(props: IProps) {
         const formData: FormData = new FormData();
         formData.append('file', files);
         formData.append('folder', props.folder);
-        await axios
-          .post(ENV.ENDPOINT + "/utils/v1/upload", formData, {
-            headers: {
-              Authorization: null,
-            },
-          })
+        await httpService
+          .UPLOAD_FILE(formData)
           .then((res: AxiosResponse) => {
             setLoadingUpload(false);
             if (props.onChange) {
@@ -176,7 +173,7 @@ interface IProps {
   name?: string;
   values?: string;
   ratio?: number;
-  folder : string;
+  folder: string;
   size?: 'lg' | 'sm';
   onChange?: (e: string) => void;
   onChaneOriginal?: (e: string) => void;

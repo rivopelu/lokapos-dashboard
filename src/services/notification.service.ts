@@ -9,19 +9,26 @@ import { MessagePayload, NotificationPayload } from '@firebase/messaging';
 
 export class NotificationService {
   async getToken(setTokenFound: Dispatch<SetStateAction<boolean>>) {
-    return getFirebaseToken(this.getMessaging())
-      .then((currentToken) => {
-        if (currentToken) {
-          console.log('current token for client: ', currentToken);
-          setTokenFound(true);
-        } else {
-          console.log('No registration token available. Request permission to generate one.');
-          setTokenFound(false);
-        }
-      })
-      .catch((err) => {
-        console.log('An error occurred while retrieving token. ', err);
-      });
+    const token = localStorage.getItem('fcm-token');
+    if (!token) {
+      return getFirebaseToken(this.getMessaging())
+        .then((currentToken) => {
+          localStorage.setItem('fcm-token', currentToken);
+
+          if (currentToken) {
+            console.log('current token for client: ', currentToken);
+          } else {
+            console.log('No registration token available. Request permission to generate one.');
+            setTokenFound(false);
+          }
+        })
+        .catch((err) => {
+          console.log('An error occurred while retrieving token. ', err);
+        });
+    } else {
+      setTokenFound(true);
+      return token;
+    }
   }
 
   getMessaging() {

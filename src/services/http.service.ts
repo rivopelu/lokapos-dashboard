@@ -1,5 +1,6 @@
 import axios, { AxiosRequestConfig } from 'axios';
 import { ENV } from '../constants/ENV.ts';
+import { ENDPOINT } from '../constants/endpoint.ts';
 
 export const RootEndpoint = ENV.ENDPOINT;
 
@@ -21,6 +22,9 @@ export class HttpService {
 
   public POST<T>(URL: string, data: T) {
     return axios.post(this.baseEndpoint + URL, data, this.HeaderSetting());
+  }
+  public UPLOAD_FILE(data : FormData) {
+    return axios.post(this.baseEndpoint + ENDPOINT.UPLOAD(), data, this.HeaderSetting());
   }
 
   public PUT<T>(URL: string, data: T) {
