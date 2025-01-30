@@ -13,7 +13,6 @@ export default function App() {
 
   useEffect(() => {
     notificationService.onMessage().then((res) => {
-      console.log(res);
       toast.custom((e) => <NotificationToastUi message={res} options={e} />);
     });
   }, []);

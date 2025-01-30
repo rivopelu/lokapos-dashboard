@@ -12,9 +12,7 @@ export function useMasterDataPage() {
 
   const [listCategories, setListCategories] = useState<IResListCategories[]>([]);
 
-  useEffect(() => {
-    console.log(listCategories);
-  }, [listCategories]);
+
 
   useEffect(() => {
     dispatch(masterDataAction.getListCategories()).then();

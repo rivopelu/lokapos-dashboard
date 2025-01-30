@@ -20,16 +20,14 @@ export class NotificationService extends BaseActions {
           localStorage.setItem('fcm-token', currentToken);
           if (currentToken) {
             if (this.authService.authCheck()) {
-              console.log('TOKEN SUCCESS SAVED');
               this.saveToken(currentToken);
             }
-            console.log('current token for client: ', currentToken);
           } else {
-            console.log('No registration token available. Request permission to generate one.');
+            console.error('No registration token available. Request permission to generate one.');
           }
         })
         .catch((err) => {
-          console.log('An error occurred while retrieving token. ', err);
+          console.error('An error occurred while retrieving token. ', err);
         });
     } else {
       if (this.authService.authCheck()) {
@@ -45,12 +43,11 @@ export class NotificationService extends BaseActions {
   }
 
   requestPermission() {
-    console.log('Requesting permission...');
     Notification.requestPermission().then((permission) => {
       if (permission === 'granted') {
-        console.log('Notification permission granted...');
+        console.info('Notification permission granted...');
       } else {
-        console.log('Do not have permissions');
+        console.info('Do not have permissions');
       }
     });
   }
