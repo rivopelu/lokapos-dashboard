@@ -3,12 +3,12 @@ importScripts('https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js')
 importScripts('https://www.gstatic.com/firebasejs/9.0.0/firebase-messaging-compat.js');
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAYrNyJzFFJ0D3-5j-aBQJPO0HNVR3PIxE",
-  authDomain: "lokapos-14f1f.firebaseapp.com",
-  projectId: "lokapos-14f1f",
-  storageBucket: "lokapos-14f1f.firebasestorage.app",
-  messagingSenderId: "120535777956",
-  appId: "120535777956:web:2e8c231ea0e3b432969c31"
+  apiKey: "AIzaSyDxKfJaWjwU_M2_OYtWzKtufSau3Tx92PU",
+  authDomain: "storage-sentrum-stagging.firebaseapp.com",
+  projectId: "storage-sentrum-stagging",
+  storageBucket: "storage-sentrum-stagging.appspot.com",
+  messagingSenderId: "285217660405",
+  appId: "1:285217660405:web:6bd69628027955034154bc"
 };
 
 firebase.initializeApp(firebaseConfig);
