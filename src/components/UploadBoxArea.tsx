@@ -16,6 +16,7 @@ import { MdClose, MdUploadFile } from 'react-icons/md';
 import { UiServices } from '../services/ui.service';
 import ErrorService from '../services/error.service';
 import getCroppedImg from '../helper/cropper-helper';
+import { ENV } from '../constants/ENV.ts';
 
 export function UploadBox(props: IProps) {
   const [aspectSet] = useState<number>(props.ratio || 1);
@@ -34,11 +35,10 @@ export function UploadBox(props: IProps) {
     try {
       if (files) {
         const formData: FormData = new FormData();
-        const fileToUpload = files;
-
-        formData.append('file', fileToUpload);
+        formData.append('file', files);
+        formData.append('folder', props.folder);
         await axios
-          .post('https://backend.newshive.id/api/upload', formData, {
+          .post(ENV.ENDPOINT + "/utils/v1/upload", formData, {
             headers: {
               Authorization: null,
             },
@@ -176,6 +176,7 @@ interface IProps {
   name?: string;
   values?: string;
   ratio?: number;
+  folder : string;
   size?: 'lg' | 'sm';
   onChange?: (e: string) => void;
   onChaneOriginal?: (e: string) => void;

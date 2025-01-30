@@ -23,6 +23,7 @@ export function BusinessRegisterPage() {
           <CardBody>
             <div className="grid gap-6">
               <UploadBox
+                folder={"business-logo"}
                 values={formik.values.logo}
                 onChange={(e) => formik.setFieldValue('logo', e)}
                 label={t('business_logo')}

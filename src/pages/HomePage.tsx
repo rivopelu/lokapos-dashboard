@@ -12,6 +12,7 @@ import { ROUTES } from '../routes/routes';
 export function HomePage() {
   const page = useHomePage();
   const dateHelper = new DateHelper();
+
   return (
     <div className="relative">
       <PageContainer className="grid gap-6 mt-10">
@@ -46,6 +47,7 @@ export function HomePage() {
           </div>
         )}
       </PageContainer>
+
       <div className="w-full top-0 bg-primary-main h-[60%] absolute"></div>
     </div>
   );

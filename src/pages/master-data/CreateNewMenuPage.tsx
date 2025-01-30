@@ -25,6 +25,7 @@ export function CreateNewMenuPage() {
         <Divider />
         <CardBody className="grid gap-8">
           <UploadBox
+            folder={"serving-menu"}
             ratio={16 / 9}
             label={t('menu_image')}
             required
