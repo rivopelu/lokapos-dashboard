@@ -109,12 +109,14 @@
   "copy_virtual_account": "copy virtual account",
   "copy_to_clipboard": "copy to clipboard",
   "back_to_home": "back to home",
-  "menu_success_updated" : "menu success updated",
-  "edit_serving_menu" : "edit serving menu",
-  "start_date" : "start date",
-  "end_date" : "end date",
-  "shift_started_title" : "Shift start",
-  "shift_started_body" : "new shift started now",
-  "shift_stop_title" : "Shift close",
-  "shift_stop_body" : "new shift closed"
+  "menu_success_updated": "menu success updated",
+  "edit_serving_menu": "edit serving menu",
+  "start_date": "start date",
+  "end_date": "end date",
+  "shift_started_title": "Shift start",
+  "shift_started_body": "new shift started now",
+  "shift_stop_title": "Shift close",
+  "shift_stop_body": "new shift closed",
+  "profile_setting": "Profile setting",
+  "business_setting": "Business setting"
 }

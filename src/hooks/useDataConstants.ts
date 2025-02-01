@@ -96,6 +96,19 @@ export function useDataConstants() {
     // },
   ];
 
+  const settingPageMenuList = [
+    {
+      title: t('profile_setting'),
+      path: 'PROFILE',
+      icon: MdHome,
+    },
+    {
+      title: t('business_setting'),
+      path: 'PROFILE',
+      icon: MdHome,
+    },
+  ];
+
   return {
     sidebarDataList,
     tax,
@@ -103,5 +116,6 @@ export function useDataConstants() {
     emailVerificationOtpExpireTimeInMinute,
     dataRole,
     bankPaymentMethodData,
+    settingPageMenuList,
   };
 }
