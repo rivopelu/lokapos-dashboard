@@ -18,5 +18,6 @@ export const ROUTES = {
   NEW_ACCOUNT: () => `/account/new`,
   EDIT_MENU: (id: string) => `/master-data/menu/edit/${id}`,
   CONFIRMATION_PAYMENT: (orderId?: string) => `/payment/confirmation${orderId ? '?orderId=' + orderId : ''}`,
-  SHIFT_PAGE: (param?: defaultPaginationType) => '/shift' + (param ? convertObjToQueryParam(param)  : ''),
+  SHIFT_PAGE: (param?: defaultPaginationType) => '/shift' + (param ? convertObjToQueryParam(param) : ''),
+  SETTING: () => `/setting`,
 };

@@ -17,8 +17,9 @@ import { CreateNewMenuPage } from '../pages/master-data/CreateNewMenuPage';
 import { AccountPage } from '../pages/account/AccountPage';
 import { NewAccountPage } from '../pages/account/NewAccountPage';
 import { ConfirmationPaymentPage } from '../pages/payment/ConfirmationPaymentPage';
-import Element = jsx.JSX.Element;
 import { ShiftPage } from '../pages/shift/ShiftPage.tsx';
+import { SettingPage } from '../pages/profile/SettingPage.tsx';
+import Element = jsx.JSX.Element;
 
 interface IRouteList {
   elements: () => Element;
@@ -108,13 +109,18 @@ export const routeList: IRouteList[] = [
     type: PAGE_TYPE_ENUM.PRIMARY,
   },
   {
-    elements : CreateNewMenuPage,
-    route : ROUTES.EDIT_MENU(":id"),
-    type : PAGE_TYPE_ENUM.PRIMARY
+    elements: CreateNewMenuPage,
+    route: ROUTES.EDIT_MENU(':id'),
+    type: PAGE_TYPE_ENUM.PRIMARY,
   },
   {
-    elements : ShiftPage,
-    route : ROUTES.SHIFT_PAGE(),
-    type : PAGE_TYPE_ENUM.PRIMARY
-  }
+    elements: ShiftPage,
+    route: ROUTES.SHIFT_PAGE(),
+    type: PAGE_TYPE_ENUM.PRIMARY,
+  },
+  {
+    elements: SettingPage,
+    type: PAGE_TYPE_ENUM.SECONDARY,
+    route: ROUTES.SETTING(),
+  },
 ];
