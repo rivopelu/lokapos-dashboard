@@ -82,11 +82,11 @@ export function UploadBox(props: IProps) {
           </div>
         </FormLabel>
         <div
-          className={`w-full relative ${props.size === 'sm' ? 'h-[200px]' : 'h-[230px] '} border border-slate-300 duration-300 rounded flex flex-col justify-center items-center  hover:bg-primary-10 ${props.errorMessage ? 'bg-red-700/20 border-red-700' : 'bg-white'}`}
+          className={`w-full relative ${props.size === 'sm' ? 'h-[200px]' : 'h-[230px] '} border border-slate-300 duration-300 rounded-sm flex flex-col justify-center items-center  hover:bg-primary-10 ${props.errorMessage ? 'bg-red-700/20 border-red-700' : 'bg-white'}`}
         >
           {props.values ? (
             <div>
-              <div className="bg-red-700 absolute top-2 right-2 z-[300] text-white w-fit rounded-full">
+              <div className="bg-red-700 absolute top-2 right-2 z-300 text-white w-fit rounded-full">
                 <IconButton onClick={() => props.onChange && props.onChange('')}>
                   <MdClose color="white" className="text-white" />
                 </IconButton>
@@ -128,7 +128,7 @@ export function UploadBox(props: IProps) {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <div className="flex items-end justify-center h-full lg:py-32 py-4 z-[400]">
+        <div className="flex items-end justify-center h-full lg:py-32 py-4 z-400">
           <Cropper
             image={fileCrop}
             crop={crop}

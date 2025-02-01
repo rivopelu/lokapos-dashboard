@@ -1,4 +1,5 @@
-import './index.scss';
+import './styles/index.scss';
+import './styles/app.css';
 import './configs/i18n-config.ts';
 
 import { StrictMode } from 'react';
