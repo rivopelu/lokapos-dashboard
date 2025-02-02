@@ -8,11 +8,13 @@ import {
   IPayloadDataPaginated,
 } from '../../models/response/IResModel.ts';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { IResDetailAccountBusiness } from '../../models/response/IResDetailAccountBusiness.ts';
 
 export interface IAccountSlice {
   getMe?: IPayloadData<IResGetMe>;
   topAlertShow?: TOP_ALERT_ENUM;
   listAccont?: IPayloadDataPaginated<IResListAccount[]>;
+  detailBusiness?: IPayloadData<IResDetailAccountBusiness>;
 }
 
 const initialState: IAccountSlice = {};
@@ -29,6 +31,9 @@ export const accountSlice = createSlice({
     },
     listAccount: (state: IAccountSlice, action: BasePayloadPaginated<IResListAccount[]>) => {
       state.listAccont = action.payload;
+    },
+    detailBusiness: (state: IAccountSlice, action: BasePayload<IResDetailAccountBusiness>) => {
+      state.detailBusiness = action.payload;
     },
   },
 });

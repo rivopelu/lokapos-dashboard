@@ -11,10 +11,10 @@ export function AreaFormModule(props: IProps) {
   const formik = props.formik;
 
   const [result, setResult] = useState<IAreaData>({
-    provinceId: undefined,
-    cityId: undefined,
-    districtId: undefined,
-    subDistrictId: undefined,
+    provinceId: formik?.values?.province_id || undefined,
+    cityId: formik?.values?.city_id || undefined,
+    districtId: formik?.values?.district_id || undefined,
+    subDistrictId: formik?.values?.sub_district_id || undefined,
   });
 
   const [listProvince, setListProvince] = useState<ILabelValue<string>[]>([]);
@@ -27,13 +27,22 @@ export function AreaFormModule(props: IProps) {
   const areaAction = new AreaAction();
 
   useEffect(() => {
-    dispatch(areaAction.getProvince());
+    dispatch(areaAction.getProvince()).then();
+    if(result.provinceId){
+      dispatch(areaAction.getCity(result.provinceId)).then();
+    }
+    if(result.cityId){
+      dispatch(areaAction.getDistrict(result.cityId)).then();
+    }
+    if(result.districtId){
+      dispatch(areaAction.getSubDistrict(result.districtId)).then();
+    }
   }, []);
 
   function onChangeProvince(e?: number) {
     setResult({ provinceId: e, cityId: undefined, districtId: undefined, subDistrictId: undefined });
     if (e) {
-      dispatch(areaAction.getCity(e));
+      dispatch(areaAction.getCity(e)).then();
     }
     if (formik) {
       formik.setFieldValue('province_id', e);
@@ -43,7 +52,7 @@ export function AreaFormModule(props: IProps) {
   function onChangeCity(e?: number) {
     setResult({ cityId: e, districtId: undefined, subDistrictId: undefined, provinceId: result.provinceId });
     if (e) {
-      dispatch(areaAction.getDistrict(e));
+      dispatch(areaAction.getDistrict(e)).then();
     }
     if (formik) {
       formik.setFieldValue('city_id', e);
@@ -53,7 +62,7 @@ export function AreaFormModule(props: IProps) {
   function onChangeDistrict(e?: number) {
     setResult({ ...result, districtId: e, subDistrictId: undefined });
     if (e) {
-      dispatch(areaAction.getSubDistrict(e));
+      dispatch(areaAction.getSubDistrict(e)).then();
     }
     if (formik) {
       formik.setFieldValue('district_id', e);

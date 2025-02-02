@@ -18,7 +18,7 @@ import { AccountPage } from '../pages/account/AccountPage';
 import { NewAccountPage } from '../pages/account/NewAccountPage';
 import { ConfirmationPaymentPage } from '../pages/payment/ConfirmationPaymentPage';
 import { ShiftPage } from '../pages/shift/ShiftPage.tsx';
-import { SettingPage } from '../pages/profile/SettingPage.tsx';
+import { SettingPage } from '../pages/settings/SettingPage.tsx';
 import Element = jsx.JSX.Element;
 
 interface IRouteList {

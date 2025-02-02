@@ -6,9 +6,11 @@ import { BaseResponse, BaseResponsePaginated } from '../../models/response/IResM
 import { IResGetMe } from '../../models/response/IResGetMe.ts';
 import { TOP_ALERT_ENUM } from '../../enums/top-alert-enum.ts';
 import { IResListAccount } from '../../models/response/IResListAccount.ts';
+import { IResDetailAccountBusiness } from '../../models/response/IResDetailAccountBusiness.ts';
 
 export class AccountActions extends BaseActions {
   private actions = accountSlice.actions;
+
   getMe() {
     return async (dispatch: Dispatch) => {
       dispatch(this.actions.getMe({ loading: true, data: undefined }));
@@ -50,6 +52,21 @@ export class AccountActions extends BaseActions {
         .catch((e) => {
           this.errorService.fetchApiError(e);
           dispatch(this.actions.listAccount({ loading: false, data: undefined }));
+        });
+    };
+  }
+
+  getDetailAccountBusiness() {
+    return async (dispatch: Dispatch) => {
+      dispatch(this.actions.detailBusiness({ loading: true, data: undefined }));
+      await this.httpService
+        .GET(ENDPOINT.GET_DETAIL_ACCOUNT_BUSINESS())
+        .then((res: BaseResponse<IResDetailAccountBusiness>) => {
+          dispatch(this.actions.detailBusiness({ loading: false, data: res.data.response_data }));
+        })
+        .catch((e) => {
+          this.errorService.fetchApiError(e);
+          dispatch(this.actions.detailBusiness({ loading: false, data: undefined }));
         });
     };
   }

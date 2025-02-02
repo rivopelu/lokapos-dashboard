@@ -117,6 +117,8 @@
   "shift_started_body": "new shift started now",
   "shift_stop_title": "Shift close",
   "shift_stop_body": "new shift closed",
+  "insert_business_address" : "insert business address",
   "profile_setting": "Profile setting",
-  "business_setting": "Business setting"
+  "business_setting": "Business setting",
+  "business_success_updated" : "Business success updated"
 }

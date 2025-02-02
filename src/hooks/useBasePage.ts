@@ -24,7 +24,7 @@ export function useBasePage() {
       if (location.pathname !== ROUTES.SIGN_IN()) {
         if (location.pathname !== ROUTES.SIGN_UP()) {
           dispatch(accountActions.getMe()).then();
-          dispatch(accountActions.getMe()).then();
+          dispatch(accountActions.getDetailAccountBusiness()).then();
         }
       }
     }
