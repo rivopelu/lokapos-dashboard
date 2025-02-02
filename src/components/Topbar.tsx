@@ -1,22 +1,17 @@
 import { Avatar, Button, ListItemIcon, ListItemText, Menu, MenuItem } from '@mui/material';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ROUTES } from '../routes/routes';
-import { MdLogout, MdPerson, MdSettings } from 'react-icons/md';
-import { t } from 'i18next';
 import { STYLE_VARIABLE } from '../constants/style-variable';
 import { PageContainer } from './PageContainer';
 import { BrandLogo } from './BrandLogo';
 import { IAccountSlice } from '../redux/reducers/account.reducers.ts';
 import { useAppSelector } from '../redux/store.ts';
-import AuthServices from '../services/auth.service.ts';
+import { useDataConstants } from '../hooks/useDataConstants.ts';
 
 export function TopBar() {
   const [activeMenu, setActiveMenu] = useState<HTMLElement | null>(null);
   const Account: IAccountSlice = useAppSelector((state) => state.Account);
   const profile = Account.getMe?.data;
-
-  const authService = new AuthServices();
 
   function handleClose() {
     setActiveMenu(null);
@@ -33,31 +28,58 @@ export function TopBar() {
           'aria-labelledby': 'basic-button',
         }}
       >
-        <MenuItem onClick={handleClose}>
-          <Link to={ROUTES.PROFILE()} className="flex items-center">
-            <ListItemIcon>
-              <MdPerson />
-            </ListItemIcon>
-            <ListItemText className="capitalize">{t('profile')}</ListItemText>
-          </Link>
-        </MenuItem>
-        <MenuItem onClick={handleClose}>
-          <Link to={ROUTES.SETTING()} className="flex items-center">
-            <ListItemIcon>
-              <MdSettings />
-            </ListItemIcon>
-            <ListItemText className="capitalize">{t('setting')}</ListItemText>
-          </Link>
-        </MenuItem>
-        <MenuItem onClick={() => authService.Logout()}>
-          <ListItemIcon>
-            <MdLogout />
-          </ListItemIcon>
-          <ListItemText className="capitalize">{t('logout')}</ListItemText>
-        </MenuItem>
+        {useDataConstants().dataProfileMenu.map((menu) => {
+          const Icon = menu.icon;
+          if (menu.path) {
+            return (
+              <MenuItem onClick={handleClose}>
+                <Link to={menu.path} className="flex items-center">
+                  <ListItemIcon>
+                    <Icon />
+                  </ListItemIcon>
+                  <ListItemText className="capitalize">{menu.title}</ListItemText>
+                </Link>
+              </MenuItem>
+            );
+          } else if (menu.onClick) {
+            return (
+              <MenuItem onClick={menu.onClick}>
+                <ListItemIcon>
+                  <Icon />
+                </ListItemIcon>
+                <ListItemText className="capitalize">{menu.title}</ListItemText>
+              </MenuItem>
+            );
+          } else {
+            return (
+              <MenuItem onClick={handleClose}>
+                <ListItemIcon>
+                  <Icon />
+                </ListItemIcon>
+                <ListItemText className="capitalize">{menu.title}</ListItemText>
+              </MenuItem>
+            );
+          }
+        })}
+
+        {/*<MenuItem onClick={handleClose}>*/}
+        {/*  <Link to={ROUTES.SETTING()} className="flex items-center">*/}
+        {/*    <ListItemIcon>*/}
+        {/*      <MdSettings />*/}
+        {/*    </ListItemIcon>*/}
+        {/*    <ListItemText className="capitalize">{t('setting')}</ListItemText>*/}
+        {/*  </Link>*/}
+        {/*</MenuItem>*/}
+        {/*<MenuItem onClick={() => authService.Logout()}>*/}
+        {/*  <ListItemIcon>*/}
+        {/*    <MdLogout />*/}
+        {/*  </ListItemIcon>*/}
+        {/*  <ListItemText className="capitalize">{t('logout')}</ListItemText>*/}
+        {/*</MenuItem>*/}
       </Menu>
     );
   }
+
   return (
     <nav
       className={'  border-b bg-white w-screen fixed flex'}

@@ -1,5 +1,14 @@
 import { t } from 'i18next';
-import { MdCalendarMonth, MdGroup, MdHome, MdInventory, MdPayment } from 'react-icons/md';
+import {
+  MdCalendarMonth,
+  MdGroup,
+  MdHome,
+  MdInventory,
+  MdLogout,
+  MdPayment,
+  MdPerson,
+  MdSettings,
+} from 'react-icons/md';
 import { ASSETS } from '../constants/assets';
 import { ACCOUNT_ROLE_ENUM } from '../enums/account-role-enum';
 import { ILabelValue } from '../interfaces/feature-type-interface';
@@ -7,8 +16,10 @@ import { ROUTES } from '../routes/routes';
 import { IListPaymentMethod } from '../models/IListPaymentMethod';
 import { PAYMENT_METHOD_TYPE_ENUM } from '../enums/payemnt-method-type-enum';
 import { defaultPaginationObj } from '../helper/pagination-helper.ts';
+import AuthServices from '../services/auth.service.ts';
 
 export function useDataConstants() {
+  const authService = new AuthServices()
   const tax = 11;
   const emailVerificationOtpExpireTimeInMinute = 3;
   const sidebarDataList = [
@@ -109,6 +120,23 @@ export function useDataConstants() {
     },
   ];
 
+  const dataProfileMenu = [
+    {
+      path  : ROUTES.PROFILE(),
+      icon : MdPerson,
+      title : t("profile")
+    },{
+      path  : ROUTES.SETTING(),
+      icon : MdSettings,
+      title : t("setting")
+    },
+    {
+      icon : MdLogout,
+      title : t("logout"),
+      onClick : () => authService.Logout()
+    },
+  ]
+
   return {
     sidebarDataList,
     tax,
@@ -117,5 +145,6 @@ export function useDataConstants() {
     dataRole,
     bankPaymentMethodData,
     settingPageMenuList,
+    dataProfileMenu
   };
 }
