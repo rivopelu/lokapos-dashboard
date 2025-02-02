@@ -20,4 +20,5 @@ export const ROUTES = {
   CONFIRMATION_PAYMENT: (orderId?: string) => `/payment/confirmation${orderId ? '?orderId=' + orderId : ''}`,
   SHIFT_PAGE: (param?: defaultPaginationType) => '/shift' + (param ? convertObjToQueryParam(param) : ''),
   SETTING: () => `/setting`,
+  WALLET: () => `/wallet`,
 };

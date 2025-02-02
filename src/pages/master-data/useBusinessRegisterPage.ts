@@ -51,7 +51,7 @@ export function useBusinessRegisterPage() {
     dispatch(accountAction.getMe());
     navigate(ROUTES.HOME());
     setLoadingSubmit(false);
-    uiService.handleSnackbarSuccess(t('your_businness_successfully_register'));
+    uiService.handleSnackbarSuccess(t('your_business_successfully_register'));
   }
 
   function checkDisableButton(): boolean {

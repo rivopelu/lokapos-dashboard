@@ -27,5 +27,6 @@ export const ENDPOINT = {
   UPLOAD: () => `/utils/v1/upload`,
   GET_DETAIL_ACCOUNT_BUSINESS : () => `/business/v1/account-business`,
   SAVE_FCM_TOKEN : (token : string) => `/account/v1/save-fcm-token?token=${token}`,
-  EDIT_ACCOUNT_BUSINESS : () => `/business/v1/edit/account-business`
+  EDIT_ACCOUNT_BUSINESS : () => `/business/v1/edit/account-business`,
+  WALLET_BALANCE : () => `/business/v1/wallet-balance`
 };

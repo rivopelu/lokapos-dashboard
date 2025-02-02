@@ -20,6 +20,7 @@ import { ConfirmationPaymentPage } from '../pages/payment/ConfirmationPaymentPag
 import { ShiftPage } from '../pages/shift/ShiftPage.tsx';
 import { SettingPage } from '../pages/settings/SettingPage.tsx';
 import Element = jsx.JSX.Element;
+import { WalletPage } from '../pages/profile/WalletPage.tsx';
 
 interface IRouteList {
   elements: () => Element;
@@ -122,5 +123,10 @@ export const routeList: IRouteList[] = [
     elements: SettingPage,
     type: PAGE_TYPE_ENUM.SECONDARY,
     route: ROUTES.SETTING(),
+  },
+  {
+    elements: WalletPage,
+    type: PAGE_TYPE_ENUM.SECONDARY,
+    route: ROUTES.WALLET(),
   },
 ];

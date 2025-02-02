@@ -35,5 +35,6 @@ export const accountSlice = createSlice({
     detailBusiness: (state: IAccountSlice, action: BasePayload<IResDetailAccountBusiness>) => {
       state.detailBusiness = action.payload;
     },
+
   },
 });

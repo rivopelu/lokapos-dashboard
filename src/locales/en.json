@@ -71,7 +71,7 @@
   "register_your_business": "Register your business",
   "business_logo": "business logo",
   "upload-images": "upload images",
-  "your_businness_successfully_register": "Your business susccessfully register",
+  "your_business_successfully_register": "Your business susccessfully register",
   "categories": "categories",
   "add_new_category": "add new category",
   "menu": "menu",
@@ -117,8 +117,10 @@
   "shift_started_body": "new shift started now",
   "shift_stop_title": "Shift close",
   "shift_stop_body": "new shift closed",
-  "insert_business_address" : "insert business address",
+  "insert_business_address": "insert business address",
   "profile_setting": "Profile setting",
   "business_setting": "Business setting",
-  "business_success_updated" : "Business success updated"
+  "business_success_updated": "Business success updated",
+  "your_balance" : "your balance",
+  "wallet": "wallet"
 }

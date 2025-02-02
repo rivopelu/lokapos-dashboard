@@ -7,7 +7,7 @@ import {
   MdLogout,
   MdPayment,
   MdPerson,
-  MdSettings,
+  MdSettings, MdWallet,
 } from 'react-icons/md';
 import { ASSETS } from '../constants/assets';
 import { ACCOUNT_ROLE_ENUM } from '../enums/account-role-enum';
@@ -125,7 +125,13 @@ export function useDataConstants() {
       path  : ROUTES.PROFILE(),
       icon : MdPerson,
       title : t("profile")
-    },{
+    },
+    {
+      path  : ROUTES.WALLET(),
+      icon : MdWallet,
+      title : t("wallet")
+    },
+    {
       path  : ROUTES.SETTING(),
       icon : MdSettings,
       title : t("setting")
