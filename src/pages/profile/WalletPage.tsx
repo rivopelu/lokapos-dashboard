@@ -17,15 +17,15 @@ export function WalletPage() {
       <div className={'grid gap-6'}>
         <h1 className={'text-2xl capitalize'}>{t('top_up')}</h1>
         <div>
-          <InputRupiah label={'amount'} />
+          <InputRupiah placeholder={t("insert_top_up_amount")} label={t("amount")} />
         </div>
         <div>
-          <div className={"mb-2 text-slate-500"}>{t('select_bank')}</div>
+          <div className={'mb-2 text-slate-500'}>{t('select_bank')}</div>
           <div className={'grid grid-cols-3 gap-3'}>
             {useDataConstants().bankPaymentMethodData.map((item, i) => (
-              <CardActionArea key={i}>
+              <CardActionArea key={i} onClick={() => page.setSelectedPayment(item.name)}>
                 <MainCard
-                  className={`px-10 border ${i.toString() === item.key ? 'border-primary-main bg-primary-main' : ''}`}
+                  className={`px-10 border duration-500 ${page.selectedPayment === item.name ? 'border-primary-main bg-primary-main'  : ''}`}
                 >
                   <CardBody>
                     <div className="flex items-center gap-4 justify-center">
@@ -44,7 +44,7 @@ export function WalletPage() {
 
   return (
     <PageContainer size={'xs'} className={'mt-8'}>
-      <PopupModal component={modalTopUpComponent()} open={true} />
+      <PopupModal  component={modalTopUpComponent()} open={page.openModalTopUp} onClose={page.onCloseModalTopUp} />
       <div className={'grid gap-8 print:bg-red-500'}>
         <div className={'bg-white p-8 border rounded-lg'}>
           <div className={'grid gap-6'}>
@@ -53,7 +53,7 @@ export function WalletPage() {
               <div className={' text-4xl'}>{numberFormatHelper.toRupiah(page.walletBalance)}</div>
             </div>
             <div className={'grid grid-cols-2 gap-4'}>
-              <Button variant={'outlined'}>{t('top_up')}</Button>
+              <Button onClick={page.onClickTopUp} variant={'outlined'}>{t('top_up')}</Button>
             </div>
           </div>
         </div>

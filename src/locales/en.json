@@ -125,5 +125,6 @@
   "wallet": "wallet",
   "top_up" : "top up",
   "amount" : "amount",
-  "select_bank": "select bank"
+  "select_bank": "select bank",
+  "insert_top_up_amount" : "insert top up amount"
 }

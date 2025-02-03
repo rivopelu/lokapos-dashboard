@@ -28,11 +28,11 @@ export function TopBar() {
           'aria-labelledby': 'basic-button',
         }}
       >
-        {useDataConstants().dataProfileMenu.map((menu) => {
+        {useDataConstants().dataProfileMenu.map((menu, i) => {
           const Icon = menu.icon;
           if (menu.path) {
             return (
-              <MenuItem onClick={handleClose}>
+              <MenuItem onClick={handleClose} key={i}>
                 <Link to={menu.path} className="flex items-center">
                   <ListItemIcon>
                     <Icon />
@@ -43,7 +43,7 @@ export function TopBar() {
             );
           } else if (menu.onClick) {
             return (
-              <MenuItem onClick={menu.onClick}>
+              <MenuItem onClick={menu.onClick} key={i}>
                 <ListItemIcon>
                   <Icon />
                 </ListItemIcon>
@@ -52,7 +52,7 @@ export function TopBar() {
             );
           } else {
             return (
-              <MenuItem onClick={handleClose}>
+              <MenuItem onClick={handleClose} key={i}>
                 <ListItemIcon>
                   <Icon />
                 </ListItemIcon>

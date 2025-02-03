@@ -6,9 +6,15 @@ import { BaseResponse } from '../../models/response/IResModel.ts';
 
 export function useWalletPage() {
   const [walletBalance, setWalletBalance] = useState<number>(0);
+  const [selectedPayment, setSelectedPayment] = useState<string | undefined>(undefined);
+  const [openModalTopUp, setOpenModalTopUp] = useState<boolean>(false);
 
   const httpService = new HttpService();
   const errorService = new ErrorService();
+
+  useEffect(() => {
+    console.log(selectedPayment)
+  }, [selectedPayment]);
 
   useEffect(() => {
     httpService
@@ -21,7 +27,20 @@ export function useWalletPage() {
       });
   }, []);
 
+  function onClickTopUp(){
+    setOpenModalTopUp(true);
+  }
+
+  function  onCloseModalTopUp(){
+    setOpenModalTopUp(false);
+  }
+
   return {
-    walletBalance
+    walletBalance,
+    setSelectedPayment,
+    selectedPayment,
+    onClickTopUp,
+    onCloseModalTopUp,
+    openModalTopUp
   };
 }
