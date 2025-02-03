@@ -11,8 +11,10 @@ export function useHomePage() {
   const subscription: ISubscriptionSlice = useAppSelector((state) => state.Subscription);
   const account: IAccountSlice = useAppSelector((state) => state.Account);
   const business: IResBusinessDetail | undefined = account?.getMe?.data?.business;
+  const loading = subscription.listSubscriptionPackage?.loading
 
   const [dataSubscription, setDataSubscription] = useState<IResSubscriptionPackage[]>([]);
+
 
   const subscriptionAction = new SubscriptionActions();
   const notificationService = new NotificationService();
@@ -27,5 +29,5 @@ export function useHomePage() {
     setDataSubscription(subscription?.listSubscriptionPackage?.data || []);
   }, [subscription?.listSubscriptionPackage]);
 
-  return { dataSubscription, business };
+  return { dataSubscription, business, loading };
 }

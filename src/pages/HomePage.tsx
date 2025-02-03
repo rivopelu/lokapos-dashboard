@@ -31,7 +31,10 @@ export function HomePage() {
           </div>
         )}
         <div className="grid grid-cols-4 gap-4 relative z-10 ">
-          {page.dataSubscription.map((item, i) => (
+          {page.loading ? Array.from({length : 4}).map((_, i) => (
+            <SubscriptionCard loading={true} key={i} />
+            )) :
+            page.dataSubscription.map((item, i) => (
             <SubscriptionCard data={item} key={i} />
           ))}
         </div>

@@ -5,6 +5,7 @@ import { NumberFormatterHelper } from '../helper/number-format-helper';
 import { IResSubscriptionPackage } from '../models/response/IResSubscriptionPackage';
 import { ROUTES } from '../routes/routes';
 import { CardBody, MainCard } from './MainLogo';
+import { CircularProgress } from '@mui/material';
 
 export function SubscriptionCard(props: IProps) {
   const numberFormatHelper = new NumberFormatterHelper();
@@ -19,14 +20,18 @@ export function SubscriptionCard(props: IProps) {
           <div className="text-center flex flex-col justify-center gap-3 py-24">
             <div>
               <div className="font-bold text-6xl">
-                {props.data.price ? numberFormatHelper.NumberMinifyFormatter(props.data.price) : ''}
+                {props?.data?.price ? numberFormatHelper.NumberMinifyFormatter(props.data.price) : ''}
               </div>
-              <p className="font-semibold text-slate-500 text-xl">{props.data.duration} day</p>
+              {props.loading ? (
+                <CircularProgress />
+              ) : (
+                <p className="font-semibold text-slate-500 text-xl">{props?.data?.duration} day</p>
+              )}
             </div>
-            <p className="italic text-slate-600">{props.data.description}</p>
+            <p className="italic text-slate-600">{props?.data?.description}</p>
           </div>
 
-          <Link className="w-full" to={ROUTES.PAYMENT_METHOD(props.data.id)}>
+          <Link className="w-full" to={ROUTES.PAYMENT_METHOD(props?.data?.id || '')}>
             <LoadingButton fullWidth size="large" variant="outlined">
               <div className="p-3">{t('get_started')}</div>
             </LoadingButton>
@@ -38,5 +43,6 @@ export function SubscriptionCard(props: IProps) {
 }
 
 interface IProps {
-  data: IResSubscriptionPackage;
+  data?: IResSubscriptionPackage;
+  loading?: boolean;
 }
