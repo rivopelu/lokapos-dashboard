@@ -123,5 +123,7 @@
   "business_success_updated": "Business success updated",
   "your_balance" : "your balance",
   "wallet": "wallet",
-  "top_up" : "top up"
+  "top_up" : "top up",
+  "amount" : "amount",
+  "select_bank": "select bank"
 }
